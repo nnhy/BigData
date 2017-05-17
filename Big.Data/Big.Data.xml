@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tables Version="9.4.6345.18727">
+  <Table Name="SalesOrder" Description="销售订单" DbType="SqlServer">
+    <Columns>
+      <Column Name="ID" DataType="Int32" Identity="True" PrimaryKey="True" Description="编号" />
+      <Column Name="Number" DataType="String" Description="订单号" />
+      <Column Name="NodeID" DataType="Int32" Description="节点" />
+      <Column Name="Action" DataType="String" Description="动作" />
+      <Column Name="CreateTime" DataType="DateTime" Description="时间" />
+    </Columns>
+    <Indexes>
+      <Index Columns="Number" Unique="True" />
+    </Indexes>
+  </Table>
+</Tables>
