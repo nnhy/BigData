@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Big.Data.Entity;
 using NewLife.Log;
+using NewLife.Net;
 using NewLife.Security;
 using XCode;
 
@@ -56,28 +57,30 @@ namespace BigData
             // 时间均摊到某一天，随机产生，几率加倍
             var add = (Int32)((24.0 * 3600 * 1000 / total) * 2);
 
+            var stat = new Statistics();
             Task task = null;
             var list = new EntityList<SalesOrder>();
             var sw = Stopwatch.StartNew();
             for (int i = count; i < total; i++)
             {
+                stat.Increment();
                 // 批量提交事务
                 if (i > 0 && i % batch == 0)
                 {
                     //ss.Commit();
                     //ss.BeginTrans();
-                    //if (task != null && !task.IsOK()) task.Wait();
-                    //task = Task.Run(() =>
-                    //{
-                    //    var es = list;
-                    //    list = new EntityList<SalesOrder>();
-                    //    es.Insert();
-                    //});
+                    if (task != null && !task.IsOK()) task.Wait();
+                    task = Task.Run(() =>
+                    {
+                        var es = list;
+                        list = new EntityList<SalesOrder>();
+                        es.Insert();
+                    });
 
                     sw.Stop();
-                    var speed = 0;
-                    if (sw.ElapsedMilliseconds > 0) speed = (Int32)(batch * 1000 / sw.ElapsedMilliseconds);
-                    Console.Title = "进度 {0:p2} 速度 {1:n0}tps".F((double)i / total, speed);
+                    //var speed = 0;
+                    //if (sw.ElapsedMilliseconds > 0) speed = (Int32)(batch * 1000 / sw.ElapsedMilliseconds);
+                    Console.Title = "进度 {0:p2} 速度 {1}".F((double)i / total, stat);
                     sw.Reset();
                     sw.Start();
                 }
@@ -92,8 +95,7 @@ namespace BigData
                 time = time.AddMilliseconds(add / 2);
                 sd.CreateTime = time;
                 //sd.Insert();
-                //list.Add(sd);
-                sd.SaveAsync();
+                list.Add(sd);
             }
 
             //ss.Commit();
