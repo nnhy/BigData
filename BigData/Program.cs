@@ -46,9 +46,6 @@ namespace BigData
             if (count >= total) return;
             var batch = 10000;
 
-            //var ss = SalesOrder.Meta.Session;
-            //ss.BeginTrans();
-
             // 模拟时序数据
             //var time = new DateTime(2000, 1, 1);
             var time = DateTime.Now.Date;
@@ -60,15 +57,12 @@ namespace BigData
             var stat = new Statistics();
             Task task = null;
             var list = new EntityList<SalesOrder>();
-            var sw = Stopwatch.StartNew();
             for (int i = count; i < total; i++)
             {
                 stat.Increment();
                 // 批量提交事务
                 if (i > 0 && i % batch == 0)
                 {
-                    //ss.Commit();
-                    //ss.BeginTrans();
                     if (task != null && !task.IsOK()) task.Wait();
                     task = Task.Run(() =>
                     {
@@ -77,12 +71,7 @@ namespace BigData
                         es.Insert();
                     });
 
-                    sw.Stop();
-                    //var speed = 0;
-                    //if (sw.ElapsedMilliseconds > 0) speed = (Int32)(batch * 1000 / sw.ElapsedMilliseconds);
                     Console.Title = "进度 {0:p2} 速度 {1}".F((double)i / total, stat);
-                    sw.Reset();
-                    sw.Start();
                 }
 
                 var sd = new SalesOrder();
@@ -97,8 +86,6 @@ namespace BigData
                 //sd.Insert();
                 list.Add(sd);
             }
-
-            //ss.Commit();
         }
     }
 }
