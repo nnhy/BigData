@@ -27,6 +27,7 @@ namespace BigData
                 XTrace.WriteException(ex?.GetTrue());
             }
 
+            GC.Collect();
             Console.WriteLine("OK!");
             Console.ReadKey(false);
         }
@@ -57,7 +58,7 @@ namespace BigData
             var stat = new Statistics();
             Task task = null;
             var list = new EntityList<SalesOrder>();
-            for (int i = count; i < total; i++)
+            for (int i = count; i <= total; i++)
             {
                 stat.Increment();
                 // 批量提交事务
