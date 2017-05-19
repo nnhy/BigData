@@ -6118,8 +6118,11 @@
         <member name="P:NewLife.Remoting.ApiSession.Session">
             <summary>会话</summary>
         </member>
-        <member name="P:NewLife.Remoting.ApiSession.User">
-            <summary>用户名</summary>
+        <member name="P:NewLife.Remoting.ApiSession.Key">
+            <summary>通信密钥</summary>
+        </member>
+        <member name="P:NewLife.Remoting.ApiSession.Logined">
+            <summary>是否已登录</summary>
         </member>
         <member name="P:NewLife.Remoting.ApiSession.LastActive">
             <summary>最后活跃时间</summary>
@@ -6153,6 +6156,10 @@
         </member>
         <member name="M:NewLife.Remoting.ApiSession.GenerateKey">
             <summary>生成密钥，默认密码加密密钥，可继承修改</summary>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Remoting.ApiSession.OnLogout">
+            <summary>注销</summary>
             <returns></returns>
         </member>
         <member name="M:NewLife.Remoting.ApiSession.OnPing">
@@ -6577,6 +6584,9 @@
         <member name="P:NewLife.Remoting.IApiSession.UserState">
             <summary>用户对象。一般用于共享用户信息对象</summary>
         </member>
+        <member name="P:NewLife.Remoting.IApiSession.UserSession">
+            <summary>用户状态会话</summary>
+        </member>
         <member name="P:NewLife.Remoting.IApiSession.Host">
             <summary>主机</summary>
         </member>
@@ -6632,6 +6642,9 @@
         </member>
         <member name="P:NewLife.Remoting.ApiClient.UserState">
             <summary>用户对象。一般用于共享用户信息对象</summary>
+        </member>
+        <member name="P:NewLife.Remoting.ApiClient.NewLife#Remoting#IApiSession#UserSession">
+            <summary>用户状态会话</summary>
         </member>
         <member name="P:NewLife.Remoting.ApiClient.NewLife#Remoting#IApiSession#AllSessions">
             <summary>所有服务器所有会话，包含自己</summary>
@@ -6815,11 +6828,18 @@
         <member name="P:NewLife.Remoting.ApiNetSession.UserState">
             <summary>用户对象。一般用于共享用户信息对象</summary>
         </member>
+        <member name="P:NewLife.Remoting.ApiNetSession.NewLife#Remoting#IApiSession#UserSession">
+            <summary>用户状态会话</summary>
+        </member>
         <member name="P:NewLife.Remoting.ApiNetSession.NewLife#Remoting#IApiSession#Host">
             <summary>主机</summary>
         </member>
         <member name="P:NewLife.Remoting.ApiNetSession.AllSessions">
             <summary>所有服务器所有会话，包含自己</summary>
+        </member>
+        <member name="M:NewLife.Remoting.ApiNetSession.OnDispose(System.Boolean)">
+            <summary>销毁</summary>
+            <param name="disposing"></param>
         </member>
         <member name="M:NewLife.Remoting.ApiNetSession.Start">
             <summary>开始会话处理</summary>
@@ -7016,6 +7036,12 @@
             <summary>写日志</summary>
             <param name="format"></param>
             <param name="args"></param>
+        </member>
+        <member name="T:NewLife.Remoting.IUserSession">
+            <summary>用户会话接口</summary>
+        </member>
+        <member name="P:NewLife.Remoting.IUserSession.Logined">
+            <summary>是否已登录</summary>
         </member>
         <member name="T:NewLife.Remoting.JsonEncoder">
             <summary>Json编码器</summary>

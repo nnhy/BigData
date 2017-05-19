@@ -21,3 +21,5 @@ bld/
 *.nuspec
 *.nupkg
 /Big.Data.Web/Content
+/Big.Data.Web/Config
+/Big.Data.Web/Plugins
