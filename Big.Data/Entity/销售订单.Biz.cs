@@ -4,14 +4,14 @@
  * 时间：2017-05-16 10:48:58
  * 版权：版权所有 (C) 新生命开发团队 2002~2017
 */
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using System.Xml.Serialization;
 using NewLife.Log;
 using NewLife.Web;
-﻿using NewLife.Data;
+using NewLife.Data;
 using XCode;
 using XCode.Configuration;
 using XCode.Membership;
@@ -26,8 +26,8 @@ namespace Big.Data.Entity
         /// <param name="isNew"></param>
         public override void Valid(Boolean isNew)
         {
-			// 如果没有脏数据，则不需要进行任何处理
-			if (!HasDirty) return;
+            // 如果没有脏数据，则不需要进行任何处理
+            if (!HasDirty) return;
 
             // 建议先调用基类方法，基类方法会对唯一索引的数据进行验证
             //base.Valid(isNew);
@@ -35,12 +35,12 @@ namespace Big.Data.Entity
         #endregion
 
         #region 扩展属性
-            ﻿
+
 
         #endregion
 
         #region 扩展查询
-            ﻿
+
         /// <summary>根据订单号查找</summary>
         /// <param name="number">订单号</param>
         /// <returns></returns>
@@ -69,14 +69,10 @@ namespace Big.Data.Entity
         /// <returns>实体集</returns>
         public static EntityList<SalesOrder> Search(Int32 userid, DateTime start, DateTime end, String key, PageParameter param)
         {
-            // WhereExpression重载&和|运算符，作为And和Or的替代
-            // SearchWhereByKeys系列方法用于构建针对字符串字段的模糊搜索，第二个参数可指定要搜索的字段
-            var exp = SearchWhereByKeys(key, null, null);
+            var exp = new WhereExpression();
 
-            // 以下仅为演示，Field（继承自FieldItem）重载了==、!=、>、<、>=、<=等运算符
-            //if (userid > 0) exp &= _.OperatorID == userid;
-            //if (isSign != null) exp &= _.IsSign == isSign.Value;
-            //exp &= _.OccurTime.Between(start, end); // 大于等于start，小于end，当start/end大于MinValue时有效
+            if (!key.IsNullOrEmpty()) exp &= _.Number == key.Trim();
+            exp &= _.CreateTime.Between(start, end);
 
             return FindAll(exp, param);
         }
