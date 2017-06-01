@@ -4743,32 +4743,6 @@
             <param name="enable">是否启用。某些系统可能需要验证审核</param>
             <returns></returns>
         </member>
-        <member name="T:XCode.Membership.IManageUser">
-            <summary>用户接口</summary>
-        </member>
-        <member name="P:XCode.Membership.IManageUser.Uid">
-            <summary>唯一编号</summary>
-        </member>
-        <member name="P:XCode.Membership.IManageUser.ID">
-            <summary>数字编号。如果唯一编号不是数字，请抛出异常</summary>
-        </member>
-        <member name="P:XCode.Membership.IManageUser.Name">
-            <summary>账号</summary>
-        </member>
-        <member name="P:XCode.Membership.IManageUser.Password">
-            <summary>密码</summary>
-        </member>
-        <member name="P:XCode.Membership.IManageUser.IsAdmin">
-            <summary>是否管理员</summary>
-        </member>
-        <member name="P:XCode.Membership.IManageUser.Enable">
-            <summary>是否启用</summary>
-        </member>
-        <member name="P:XCode.Membership.IManageUser.Item(System.String)">
-            <summary>获取/设置 字段值。</summary>
-            <param name="name">字段名</param>
-            <returns></returns>
-        </member>
         <member name="T:XCode.Membership.MenuProvider">
             <summary>菜单提供者。提供菜单相关操作的功能</summary>
         </member>
@@ -5394,14 +5368,8 @@
         <member name="P:XCode.Membership.User`1.RoleName">
             <summary>角色名</summary>
         </member>
-        <member name="P:XCode.Membership.User`1.XCode#Membership#IManageUser#Uid">
-            <summary>编号</summary>
-        </member>
-        <member name="P:XCode.Membership.User`1.XCode#Membership#IManageUser#Password">
-            <summary>密码</summary>
-        </member>
-        <member name="P:XCode.Membership.User`1.XCode#Membership#IManageUser#IsAdmin">
-            <summary>是否管理员</summary>
+        <member name="P:XCode.Membership.User`1.NewLife#Model#IManageUser#NickName">
+            <summary>昵称</summary>
         </member>
         <member name="P:XCode.Membership.User`1.ID">
             <summary>编号</summary>
@@ -5413,13 +5381,13 @@
             <summary>密码</summary>
         </member>
         <member name="P:XCode.Membership.User`1.DisplayName">
-            <summary>显示名。昵称、中文名等</summary>
-        </member>
-        <member name="P:XCode.Membership.User`1.Mail">
-            <summary>邮件</summary>
+            <summary>昵称</summary>
         </member>
         <member name="P:XCode.Membership.User`1.Sex">
             <summary>性别。未知、男、女</summary>
+        </member>
+        <member name="P:XCode.Membership.User`1.Mail">
+            <summary>邮件</summary>
         </member>
         <member name="P:XCode.Membership.User`1.Phone">
             <summary>电话</summary>
@@ -5430,6 +5398,9 @@
         <member name="P:XCode.Membership.User`1.RoleID">
             <summary>角色</summary>
         </member>
+        <member name="P:XCode.Membership.User`1.Online">
+            <summary>在线</summary>
+        </member>
         <member name="P:XCode.Membership.User`1.Enable">
             <summary>启用</summary>
         </member>
@@ -5439,9 +5410,6 @@
         <member name="P:XCode.Membership.User`1.EndTime">
             <summary>结束时间</summary>
         </member>
-        <member name="P:XCode.Membership.User`1.RegisterTime">
-            <summary>注册时间</summary>
-        </member>
         <member name="P:XCode.Membership.User`1.Logins">
             <summary>登录次数</summary>
         </member>
@@ -5450,6 +5418,12 @@
         </member>
         <member name="P:XCode.Membership.User`1.LastLoginIP">
             <summary>最后登录IP</summary>
+        </member>
+        <member name="P:XCode.Membership.User`1.RegisterTime">
+            <summary>注册时间</summary>
+        </member>
+        <member name="P:XCode.Membership.User`1.RegisterIP">
+            <summary>注册IP</summary>
         </member>
         <member name="P:XCode.Membership.User`1.Question">
             <summary>问题</summary>
@@ -5482,7 +5456,7 @@
             <summary>密码</summary>
         </member>
         <member name="F:XCode.Membership.User`1._.DisplayName">
-            <summary>显示名。昵称、中文名等</summary>
+            <summary>昵称</summary>
         </member>
         <member name="F:XCode.Membership.User`1._.Sex">
             <summary>性别。未知、男、女</summary>
@@ -5499,6 +5473,9 @@
         <member name="F:XCode.Membership.User`1._.RoleID">
             <summary>角色</summary>
         </member>
+        <member name="F:XCode.Membership.User`1._.Online">
+            <summary>在线</summary>
+        </member>
         <member name="F:XCode.Membership.User`1._.Enable">
             <summary>启用</summary>
         </member>
@@ -5508,9 +5485,6 @@
         <member name="F:XCode.Membership.User`1._.EndTime">
             <summary>结束时间</summary>
         </member>
-        <member name="F:XCode.Membership.User`1._.RegisterTime">
-            <summary>注册时间</summary>
-        </member>
         <member name="F:XCode.Membership.User`1._.Logins">
             <summary>登录次数</summary>
         </member>
@@ -5519,6 +5493,12 @@
         </member>
         <member name="F:XCode.Membership.User`1._.LastLoginIP">
             <summary>最后登录IP</summary>
+        </member>
+        <member name="F:XCode.Membership.User`1._.RegisterTime">
+            <summary>注册时间</summary>
+        </member>
+        <member name="F:XCode.Membership.User`1._.RegisterIP">
+            <summary>注册IP</summary>
         </member>
         <member name="F:XCode.Membership.User`1._.Question">
             <summary>问题</summary>
@@ -5542,7 +5522,7 @@
             <summary>密码</summary>
         </member>
         <member name="F:XCode.Membership.User`1.__.DisplayName">
-            <summary>显示名。昵称、中文名等</summary>
+            <summary>昵称</summary>
         </member>
         <member name="F:XCode.Membership.User`1.__.Sex">
             <summary>性别。未知、男、女</summary>
@@ -5559,6 +5539,9 @@
         <member name="F:XCode.Membership.User`1.__.RoleID">
             <summary>角色</summary>
         </member>
+        <member name="F:XCode.Membership.User`1.__.Online">
+            <summary>在线</summary>
+        </member>
         <member name="F:XCode.Membership.User`1.__.Enable">
             <summary>启用</summary>
         </member>
@@ -5568,9 +5551,6 @@
         <member name="F:XCode.Membership.User`1.__.EndTime">
             <summary>结束时间</summary>
         </member>
-        <member name="F:XCode.Membership.User`1.__.RegisterTime">
-            <summary>注册时间</summary>
-        </member>
         <member name="F:XCode.Membership.User`1.__.Logins">
             <summary>登录次数</summary>
         </member>
@@ -5579,6 +5559,12 @@
         </member>
         <member name="F:XCode.Membership.User`1.__.LastLoginIP">
             <summary>最后登录IP</summary>
+        </member>
+        <member name="F:XCode.Membership.User`1.__.RegisterTime">
+            <summary>注册时间</summary>
+        </member>
+        <member name="F:XCode.Membership.User`1.__.RegisterIP">
+            <summary>注册IP</summary>
         </member>
         <member name="F:XCode.Membership.User`1.__.Question">
             <summary>问题</summary>
@@ -5621,7 +5607,7 @@
             <summary>密码</summary>
         </member>
         <member name="P:XCode.Membership.IUser.DisplayName">
-            <summary>显示名。昵称、中文名等</summary>
+            <summary>昵称</summary>
         </member>
         <member name="P:XCode.Membership.IUser.Sex">
             <summary>性别。未知、男、女</summary>
@@ -5638,6 +5624,9 @@
         <member name="P:XCode.Membership.IUser.RoleID">
             <summary>角色</summary>
         </member>
+        <member name="P:XCode.Membership.IUser.Online">
+            <summary>在线</summary>
+        </member>
         <member name="P:XCode.Membership.IUser.Enable">
             <summary>启用</summary>
         </member>
@@ -5647,9 +5636,6 @@
         <member name="P:XCode.Membership.IUser.EndTime">
             <summary>结束时间</summary>
         </member>
-        <member name="P:XCode.Membership.IUser.RegisterTime">
-            <summary>注册时间</summary>
-        </member>
         <member name="P:XCode.Membership.IUser.Logins">
             <summary>登录次数</summary>
         </member>
@@ -5658,6 +5644,12 @@
         </member>
         <member name="P:XCode.Membership.IUser.LastLoginIP">
             <summary>最后登录IP</summary>
+        </member>
+        <member name="P:XCode.Membership.IUser.RegisterTime">
+            <summary>注册时间</summary>
+        </member>
+        <member name="P:XCode.Membership.IUser.RegisterIP">
+            <summary>注册IP</summary>
         </member>
         <member name="P:XCode.Membership.IUser.Question">
             <summary>问题</summary>
@@ -6463,6 +6455,74 @@
             <param name="needBracket">外部是否需要括号。如果外部要求括号，而内部又有Or，则加上括号</param>
             <returns></returns>
         </member>
+        <member name="T:XCode.Remoting.ApiUserSession">
+            <summary>带有用户信息的Api会话</summary>
+        </member>
+        <member name="P:XCode.Remoting.ApiUserSession.Current">
+            <summary>当前登录用户</summary>
+        </member>
+        <member name="P:XCode.Remoting.ApiUserSession.Online">
+            <summary>在线对象</summary>
+        </member>
+        <member name="P:XCode.Remoting.ApiUserSession.Name">
+            <summary>名称</summary>
+        </member>
+        <member name="P:XCode.Remoting.ApiUserSession.Agent">
+            <summary>平台</summary>
+        </member>
+        <member name="P:XCode.Remoting.ApiUserSession.OS">
+            <summary>系统</summary>
+        </member>
+        <member name="P:XCode.Remoting.ApiUserSession.Type">
+            <summary>类型</summary>
+        </member>
+        <member name="P:XCode.Remoting.ApiUserSession.Version">
+            <summary>版本</summary>
+        </member>
+        <member name="P:XCode.Remoting.ApiUserSession.AuthKey">
+            <summary>验证Key</summary>
+        </member>
+        <member name="M:XCode.Remoting.ApiUserSession.CheckLogin(System.String,System.String)">
+            <summary>检查登录，默认检查密码MD5散列，可继承修改</summary>
+            <param name="user">用户名</param>
+            <param name="pass">密码</param>
+            <returns>返回要发给客户端的对象</returns>
+        </member>
+        <member name="M:XCode.Remoting.ApiUserSession.GenerateKey(System.String)">
+            <summary>生成密钥，默认密码加密密钥，可继承修改</summary>
+            <returns></returns>
+        </member>
+        <member name="M:XCode.Remoting.ApiUserSession.CheckUser(System.String,System.String)">
+            <summary>查找用户并登录</summary>
+            <param name="user"></param>
+            <param name="pass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XCode.Remoting.ApiUserSession.Register(System.String,System.String)">
+            <summary>注册</summary>
+            <param name="user"></param>
+            <param name="pass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XCode.Remoting.ApiUserSession.OnPing">
+            <summary>心跳</summary>
+            <returns></returns>
+        </member>
+        <member name="M:XCode.Remoting.ApiUserSession.CreateOnline(System.Int32)">
+            <summary>创建在线</summary>
+            <param name="sessionid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XCode.Remoting.ApiUserSession.SaveHistory(System.String,System.Boolean,System.String)">
+            <summary>保存令牌操作历史</summary>
+            <param name="action"></param>
+            <param name="success"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:XCode.Remoting.ApiUserSession.CreateHistory">
+            <summary>创建历史</summary>
+            <returns></returns>
+        </member>
         <member name="T:XCode.Setting">
             <summary>XCode设置</summary>
         </member>
@@ -6528,9 +6588,6 @@
         </member>
         <member name="P:XCode.OracleSetting.IgnoreCase">
             <summary>是否忽略大小写，如果不忽略则在表名字段名外面加上双引号，默认true</summary>
-        </member>
-        <member name="M:XCode.OracleSetting.#ctor">
-            <summary>初始化</summary>
         </member>
         <member name="T:XCode.Sync.ISyncMaster">
             <summary>同步架构主方接口</summary>

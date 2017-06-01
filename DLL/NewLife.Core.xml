@@ -1378,9 +1378,6 @@
         <member name="T:NewLife.Http.HttpBase">
             <summary>Http请求响应基类</summary>
         </member>
-        <member name="P:NewLife.Http.HttpBase.IsWebSocket">
-            <summary>是否WebSocket</summary>
-        </member>
         <member name="P:NewLife.Http.HttpBase.ContentLength">
             <summary>内容长度</summary>
         </member>
@@ -1418,6 +1415,12 @@
         <member name="T:NewLife.Http.HttpClient">
             <summary>Http客户端</summary>
         </member>
+        <member name="P:NewLife.Http.HttpClient.IsWebSocket">
+            <summary>是否WebSocket</summary>
+        </member>
+        <member name="P:NewLife.Http.HttpClient.IsSSL">
+            <summary>是否启用SSL</summary>
+        </member>
         <member name="P:NewLife.Http.HttpClient.Request">
             <summary>请求</summary>
         </member>
@@ -1426,6 +1429,10 @@
         </member>
         <member name="M:NewLife.Http.HttpClient.#ctor">
             <summary>实例化增强TCP</summary>
+        </member>
+        <member name="M:NewLife.Http.HttpClient.Open">
+            <summary>打开</summary>
+            <returns></returns>
         </member>
         <member name="M:NewLife.Http.HttpClient.OnOpen">
             <summary>打开</summary>
@@ -1443,9 +1450,6 @@
         </member>
         <member name="P:NewLife.Http.HttpRequest.Url">
             <summary>资源路径</summary>
-        </member>
-        <member name="P:NewLife.Http.HttpRequest.IsSSL">
-            <summary>是否启用SSL</summary>
         </member>
         <member name="P:NewLife.Http.HttpRequest.UserAgent">
             <summary>用户代理</summary>
@@ -1521,7 +1525,11 @@
             <param name="pk"></param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Http.HttpHelper.HandeShake(System.String,NewLife.Http.HttpResponse)">
+        <member name="M:NewLife.Http.HttpHelper.MakeHandshake(NewLife.Http.HttpRequest)">
+            <summary>建立握手包</summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:NewLife.Http.HttpHelper.Handshake(System.String,NewLife.Http.HttpResponse)">
             <summary>握手</summary>
             <param name="key"></param>
             <param name="response"></param>
@@ -1538,6 +1546,9 @@
         </member>
         <member name="T:NewLife.Http.HttpSession">
             <summary>Http会话</summary>
+        </member>
+        <member name="P:NewLife.Http.HttpSession.IsWebSocket">
+            <summary>是否WebSocket</summary>
         </member>
         <member name="P:NewLife.Http.HttpSession.Request">
             <summary>请求</summary>
@@ -2477,6 +2488,62 @@
             <param name="args"></param>
             <returns></returns>
         </member>
+        <member name="T:NewLife.Model.IHistory">
+            <summary>历史接口，用户操作历史</summary>
+        </member>
+        <member name="P:NewLife.Model.IHistory.UserID">
+            <summary>会员</summary>
+        </member>
+        <member name="P:NewLife.Model.IHistory.Name">
+            <summary>名称</summary>
+        </member>
+        <member name="P:NewLife.Model.IHistory.Type">
+            <summary>类型</summary>
+        </member>
+        <member name="P:NewLife.Model.IHistory.Action">
+            <summary>操作</summary>
+        </member>
+        <member name="P:NewLife.Model.IHistory.Success">
+            <summary>成功</summary>
+        </member>
+        <member name="P:NewLife.Model.IHistory.CreateIP">
+            <summary>创建地址</summary>
+        </member>
+        <member name="P:NewLife.Model.IHistory.Remark">
+            <summary>内容</summary>
+        </member>
+        <member name="M:NewLife.Model.IHistory.SaveAsync(System.Int32)">
+            <summary>异步保存。实现延迟保存，大事务保存。主要面向日志表和频繁更新的在线记录表</summary>
+            <param name="msDelay">延迟保存的时间。默认0ms近实时保存</param>
+            <returns>是否成功加入异步队列</returns>
+        </member>
+        <member name="T:NewLife.Model.IOnline">
+            <summary>在线接口，用户在线离线</summary>
+        </member>
+        <member name="P:NewLife.Model.IOnline.UserID">
+            <summary>会员</summary>
+        </member>
+        <member name="P:NewLife.Model.IOnline.SessionID">
+            <summary>会话</summary>
+        </member>
+        <member name="P:NewLife.Model.IOnline.CreateTime">
+            <summary>创建时间</summary>
+        </member>
+        <member name="P:NewLife.Model.IOnline.CreateIP">
+            <summary>创建地址</summary>
+        </member>
+        <member name="P:NewLife.Model.IOnline.UpdateTime">
+            <summary>更新时间</summary>
+        </member>
+        <member name="M:NewLife.Model.IOnline.SaveAsync(System.Int32)">
+            <summary>异步保存。实现延迟保存，大事务保存。主要面向日志表和频繁更新的在线记录表</summary>
+            <param name="msDelay">延迟保存的时间。默认0ms近实时保存</param>
+            <returns>是否成功加入异步队列</returns>
+        </member>
+        <member name="M:NewLife.Model.IOnline.Delete">
+            <summary>从数据库中删除该对象</summary>
+            <returns></returns>
+        </member>
         <member name="T:NewLife.Model.IPlugin">
             <summary>通用插件接口</summary>
             <remarks>
@@ -2534,6 +2601,77 @@
         </member>
         <member name="M:NewLife.Model.PluginManager.Init">
             <summary>开始初始化。初始化之后，不属于当前宿主的插件将会被过滤掉</summary>
+        </member>
+        <member name="T:NewLife.Model.IManageUser">
+            <summary>用户接口，具有登录验证、注册、在线等基本信息</summary>
+        </member>
+        <member name="P:NewLife.Model.IManageUser.ID">
+            <summary>编号</summary>
+        </member>
+        <member name="P:NewLife.Model.IManageUser.Name">
+            <summary>名称</summary>
+        </member>
+        <member name="P:NewLife.Model.IManageUser.Password">
+            <summary>密码</summary>
+        </member>
+        <member name="P:NewLife.Model.IManageUser.NickName">
+            <summary>昵称</summary>
+        </member>
+        <member name="P:NewLife.Model.IManageUser.Online">
+            <summary>在线</summary>
+        </member>
+        <member name="P:NewLife.Model.IManageUser.Enable">
+            <summary>启用</summary>
+        </member>
+        <member name="P:NewLife.Model.IManageUser.Logins">
+            <summary>登录次数</summary>
+        </member>
+        <member name="P:NewLife.Model.IManageUser.LastLogin">
+            <summary>最后登录</summary>
+        </member>
+        <member name="P:NewLife.Model.IManageUser.LastLoginIP">
+            <summary>最后登录IP</summary>
+        </member>
+        <member name="P:NewLife.Model.IManageUser.RegisterTime">
+            <summary>注册时间</summary>
+        </member>
+        <member name="P:NewLife.Model.IManageUser.RegisterIP">
+            <summary>注册IP</summary>
+        </member>
+        <member name="M:NewLife.Model.IManageUser.Save">
+            <summary>保存</summary>
+            <returns></returns>
+        </member>
+        <member name="T:NewLife.Model.ManageUserHelper">
+            <summary>用户接口工具类</summary>
+        </member>
+        <member name="M:NewLife.Model.ManageUserHelper.CheckEqual(NewLife.Model.IManageUser,System.String)">
+            <summary>比较密码相等</summary>
+            <param name="user"></param>
+            <param name="pass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Model.ManageUserHelper.CheckMD5(NewLife.Model.IManageUser,System.String)">
+            <summary>比较密码MD5</summary>
+            <param name="user"></param>
+            <param name="pass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Model.ManageUserHelper.CheckRC4(NewLife.Model.IManageUser,System.String)">
+            <summary>比较密码RC4</summary>
+            <param name="user"></param>
+            <param name="pass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Model.ManageUserHelper.SaveLogin(NewLife.Model.IManageUser,NewLife.Net.INetSession)">
+            <summary>保存登录信息</summary>
+            <param name="user"></param>
+            <param name="session"></param>
+        </member>
+        <member name="M:NewLife.Model.ManageUserHelper.SaveRegister(NewLife.Model.IManageUser,NewLife.Net.INetSession)">
+            <summary>保存注册信息</summary>
+            <param name="user"></param>
+            <param name="session"></param>
         </member>
         <member name="T:NewLife.Model.IObjectContainer">
             <summary>对象容器接口</summary>
@@ -6124,9 +6262,6 @@
         <member name="P:NewLife.Remoting.ApiSession.Logined">
             <summary>是否已登录</summary>
         </member>
-        <member name="P:NewLife.Remoting.ApiSession.LastActive">
-            <summary>最后活跃时间</summary>
-        </member>
         <member name="M:NewLife.Remoting.ApiSession.OnDispose(System.Boolean)">
             <summary>销毁时，从集合里面删除令牌</summary>
             <param name="disposing"></param>
@@ -6149,12 +6284,12 @@
             <returns></returns>
         </member>
         <member name="M:NewLife.Remoting.ApiSession.CheckLogin(System.String,System.String)">
-            <summary>检查登录，默认检查密码MD5散列，可继承修改</summary>
+            <summary>检查登录，默认检查密码，可继承修改</summary>
             <param name="user">用户名</param>
             <param name="pass">密码</param>
             <returns>返回要发给客户端的对象</returns>
         </member>
-        <member name="M:NewLife.Remoting.ApiSession.GenerateKey">
+        <member name="M:NewLife.Remoting.ApiSession.GenerateKey(System.String)">
             <summary>生成密钥，默认密码加密密钥，可继承修改</summary>
             <returns></returns>
         </member>
@@ -6166,7 +6301,7 @@
             <summary>心跳</summary>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Remoting.ApiSession.InvokeAsync``1(System.String,System.Object)">
+        <member name="M:NewLife.Remoting.ApiSession.InvokeAsync``1(System.String,System.Object,System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>远程调用</summary>
             <example>
             <code>
@@ -6177,6 +6312,7 @@
             </example>
             <param name="action"></param>
             <param name="args"></param>
+            <param name="cookie">附加参数，位于顶级</param>
             <returns></returns>
         </member>
         <member name="M:NewLife.Remoting.ApiSession.WriteLog(System.String,System.Object[])">
@@ -6464,13 +6600,14 @@
         <member name="T:NewLife.Remoting.ApiHostHelper">
             <summary>Api主机助手</summary>
         </member>
-        <member name="M:NewLife.Remoting.ApiHostHelper.InvokeAsync``1(NewLife.Remoting.IApiHost,NewLife.Remoting.IApiSession,System.String,System.Object)">
+        <member name="M:NewLife.Remoting.ApiHostHelper.InvokeAsync``1(NewLife.Remoting.IApiHost,NewLife.Remoting.IApiSession,System.String,System.Object,System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>调用</summary>
             <typeparam name="TResult"></typeparam>
             <param name="host"></param>
             <param name="session"></param>
             <param name="action"></param>
             <param name="args"></param>
+            <param name="cookie">附加参数，位于顶级</param>
             <returns></returns>
         </member>
         <member name="M:NewLife.Remoting.ApiHostHelper.ExecuteFilter(NewLife.Remoting.IApiHost,NewLife.Remoting.IApiSession,NewLife.Messaging.IMessage,System.Boolean)">
@@ -6590,8 +6727,14 @@
         <member name="P:NewLife.Remoting.IApiSession.Host">
             <summary>主机</summary>
         </member>
+        <member name="P:NewLife.Remoting.IApiSession.LastActive">
+            <summary>最后活跃时间</summary>
+        </member>
         <member name="P:NewLife.Remoting.IApiSession.AllSessions">
             <summary>所有服务器所有会话，包含自己</summary>
+        </member>
+        <member name="P:NewLife.Remoting.IApiSession.Cookie">
+            <summary>附加参数，每次请求都携带</summary>
         </member>
         <member name="P:NewLife.Remoting.IApiSession.Item(System.String)">
             <summary>获取/设置 用户会话数据</summary>
@@ -6618,11 +6761,12 @@
             <param name="msg"></param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Remoting.IApiSession.InvokeAsync``1(System.String,System.Object)">
+        <member name="M:NewLife.Remoting.IApiSession.InvokeAsync``1(System.String,System.Object,System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>远程调用</summary>
             <typeparam name="TResult"></typeparam>
             <param name="action"></param>
             <param name="args"></param>
+            <param name="cookie">附加参数，位于顶级</param>
             <returns></returns>
         </member>
         <member name="T:NewLife.Remoting.ApiClient">
@@ -6646,8 +6790,14 @@
         <member name="P:NewLife.Remoting.ApiClient.NewLife#Remoting#IApiSession#UserSession">
             <summary>用户状态会话</summary>
         </member>
+        <member name="P:NewLife.Remoting.ApiClient.LastActive">
+            <summary>最后活跃时间</summary>
+        </member>
         <member name="P:NewLife.Remoting.ApiClient.NewLife#Remoting#IApiSession#AllSessions">
             <summary>所有服务器所有会话，包含自己</summary>
+        </member>
+        <member name="P:NewLife.Remoting.ApiClient.Cookie">
+            <summary>附加参数，每次请求都携带</summary>
         </member>
         <member name="M:NewLife.Remoting.ApiClient.#ctor">
             <summary>实例化应用接口客户端</summary>
@@ -6685,11 +6835,12 @@
             <param name="api"></param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Remoting.ApiClient.InvokeAsync``1(System.String,System.Object)">
+        <member name="M:NewLife.Remoting.ApiClient.InvokeAsync``1(System.String,System.Object,System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>调用</summary>
             <typeparam name="TResult"></typeparam>
             <param name="action"></param>
             <param name="args"></param>
+            <param name="cookie">附加参数，位于顶级</param>
             <returns></returns>
         </member>
         <member name="M:NewLife.Remoting.ApiClient.NewLife#Remoting#IApiSession#CreateMessage(NewLife.Data.Packet)">
@@ -6709,7 +6860,7 @@
         <member name="P:NewLife.Remoting.ApiClient.LoginAction">
             <summary>登录动作名</summary>
         </member>
-        <member name="F:NewLife.Remoting.ApiClient.OnLogined">
+        <member name="E:NewLife.Remoting.ApiClient.OnLogined">
             <summary>登录完成事件</summary>
         </member>
         <member name="M:NewLife.Remoting.ApiClient.LoginAsync">
@@ -6834,6 +6985,12 @@
         <member name="P:NewLife.Remoting.ApiNetSession.NewLife#Remoting#IApiSession#Host">
             <summary>主机</summary>
         </member>
+        <member name="P:NewLife.Remoting.ApiNetSession.LastActive">
+            <summary>最后活跃时间</summary>
+        </member>
+        <member name="P:NewLife.Remoting.ApiNetSession.Cookie">
+            <summary>附加参数，每次请求都携带</summary>
+        </member>
         <member name="P:NewLife.Remoting.ApiNetSession.AllSessions">
             <summary>所有服务器所有会话，包含自己</summary>
         </member>
@@ -6859,11 +7016,12 @@
             <param name="pk"></param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Remoting.ApiNetSession.InvokeAsync``1(System.String,System.Object)">
+        <member name="M:NewLife.Remoting.ApiNetSession.InvokeAsync``1(System.String,System.Object,System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>远程调用</summary>
             <typeparam name="TResult"></typeparam>
             <param name="action"></param>
             <param name="args"></param>
+            <param name="cookie">附加参数，位于顶级</param>
             <returns></returns>
         </member>
         <member name="M:NewLife.Remoting.ApiNetSession.GetService(System.Type)">
@@ -6932,35 +7090,28 @@
         <member name="T:NewLife.Remoting.IEncoder">
             <summary>编码器</summary>
         </member>
-        <member name="M:NewLife.Remoting.IEncoder.Encode(System.String,System.Object)">
+        <member name="M:NewLife.Remoting.IEncoder.Encode(System.Object)">
+            <summary>编码对象</summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Remoting.IEncoder.Encode(System.String,System.Object,System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>编码请求</summary>
             <param name="action"></param>
             <param name="args"></param>
+            <param name="cookie">附加参数，位于顶级</param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Remoting.IEncoder.Encode(System.Int32,System.Object)">
+        <member name="M:NewLife.Remoting.IEncoder.Encode(System.Int32,System.Object,System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>编码响应</summary>
             <param name="code"></param>
             <param name="result"></param>
+            <param name="cookie">附加参数，位于顶级</param>
             <returns></returns>
         </member>
         <member name="M:NewLife.Remoting.IEncoder.Decode(NewLife.Data.Packet)">
             <summary>解码成为字典</summary>
             <param name="pk">数据包</param>
-            <returns></returns>
-        </member>
-        <member name="M:NewLife.Remoting.IEncoder.TryGet(System.Collections.Generic.IDictionary{System.String,System.Object},System.String@,System.Object@)">
-            <summary>解码请求</summary>
-            <param name="dic"></param>
-            <param name="action"></param>
-            <param name="args"></param>
-            <returns></returns>
-        </member>
-        <member name="M:NewLife.Remoting.IEncoder.TryGet(System.Collections.Generic.IDictionary{System.String,System.Object},System.Int32@,System.Object@)">
-            <summary>解码响应</summary>
-            <param name="dic"></param>
-            <param name="code"></param>
-            <param name="result"></param>
             <returns></returns>
         </member>
         <member name="M:NewLife.Remoting.IEncoder.Convert``1(System.Object)">
@@ -6986,35 +7137,23 @@
             <param name="obj"></param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Remoting.EncoderBase.Encode(System.String,System.Object)">
+        <member name="M:NewLife.Remoting.EncoderBase.Encode(System.String,System.Object,System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>编码请求</summary>
             <param name="action"></param>
             <param name="args"></param>
+            <param name="cookie">附加参数，位于顶级</param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Remoting.EncoderBase.Encode(System.Int32,System.Object)">
+        <member name="M:NewLife.Remoting.EncoderBase.Encode(System.Int32,System.Object,System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>编码响应</summary>
             <param name="code"></param>
             <param name="result"></param>
+            <param name="cookie">附加参数，位于顶级</param>
             <returns></returns>
         </member>
         <member name="M:NewLife.Remoting.EncoderBase.Decode(NewLife.Data.Packet)">
             <summary>解码成为字典</summary>
             <param name="pk"></param>
-            <returns></returns>
-        </member>
-        <member name="M:NewLife.Remoting.EncoderBase.TryGet(System.Collections.Generic.IDictionary{System.String,System.Object},System.String@,System.Object@)">
-            <summary>解码请求</summary>
-            <param name="dic"></param>
-            <param name="action"></param>
-            <param name="args"></param>
-            <returns></returns>
-        </member>
-        <member name="M:NewLife.Remoting.EncoderBase.TryGet(System.Collections.Generic.IDictionary{System.String,System.Object},System.Int32@,System.Object@)">
-            <summary>解码响应</summary>
-            <param name="dic"></param>
-            <param name="code"></param>
-            <param name="result"></param>
             <returns></returns>
         </member>
         <member name="M:NewLife.Remoting.EncoderBase.Convert``1(System.Object)">
@@ -8686,12 +8825,6 @@
         <member name="P:NewLife.Setting.SpeechTip">
             <summary>语音提示。默认true</summary>
         </member>
-        <member name="M:NewLife.Setting.#ctor">
-            <summary>实例化</summary>
-        </member>
-        <member name="M:NewLife.Setting.OnNew">
-            <summary>新建时调用</summary>
-        </member>
         <member name="M:NewLife.Setting.OnLoaded">
             <summary>加载完成后</summary>
         </member>
@@ -8928,9 +9061,6 @@
         </member>
         <member name="P:NewLife.Threading.TimerScheduler.Debug">
             <summary>是否开启调试，输出更多信息</summary>
-        </member>
-        <member name="T:NewLife.Web.Css">
-            <summary>CSS样式</summary>
         </member>
         <member name="T:NewLife.Web.Js">
             <summary>JavaScript脚本。提供Js的基本操作，同时也支持继承扩展</summary>
