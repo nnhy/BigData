@@ -59,3 +59,4 @@ admin/admin
 大数据镜像 https://github.com/nnhy/BigData
 4亿订单数据 http://pan.baidu.com/s/1skZJ2ih
 2亿订单数据 http://pan.baidu.com/s/1bo9NFFx
+数据库下载后，解压缩得到Data.db，拷贝到Web并排的Data里面，Data里面还有一个Membership.db
