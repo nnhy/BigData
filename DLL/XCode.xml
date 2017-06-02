@@ -9818,6 +9818,256 @@
         <member name="P:XCode.EntityTreeSetting`1.MaxDeepth">
             <summary>允许的最大深度。默认0，不限制</summary>
         </member>
+        <member name="T:XCode.Test.MyEntity`1">
+            <summary>我的基类</summary>
+        </member>
+        <member name="T:XCode.Test.IEntityTest">
+            <summary>实体测试接口</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.Guid">
+            <summary>主键一</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.Guid2">
+            <summary>主键二</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.ID">
+            <summary>自增编号</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.ID2">
+            <summary>编号二</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.Name">
+            <summary>名称</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.Password">
+            <summary>密码</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.DisplayName">
+            <summary>显示名</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.IsEnable">
+            <summary>启用</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.Logins">
+            <summary>登录次数</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.LastLogin">
+            <summary>最后登陆</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.StartDate">
+            <summary>开始日期</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.EndTime">
+            <summary>结束时间</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.Total">
+            <summary>总数</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.Item2">
+            <summary>百分比</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.EntityTest2">
+            <summary>实数</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.Money">
+            <summary>金额</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.File">
+            <summary>文件</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.Remark">
+            <summary>备注一</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.Remark2">
+            <summary>备注二</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.Description">
+            <summary>说明</summary>
+        </member>
+        <member name="P:XCode.Test.IEntityTest.Item(System.String)">
+            <summary>获取/设置 字段值。</summary>
+            <param name="name">字段名</param>
+            <returns></returns>
+        </member>
+        <member name="T:XCode.Test.EntityTest`1">
+            <summary>实体测试</summary>
+            <summary>实体测试</summary>
+        </member>
+        <member name="M:XCode.Test.EntityTest`1.InitData">
+            <summary>初始化数据</summary>
+        </member>
+        <member name="M:XCode.Test.EntityTest`1.Test">
+            <summary>测试主方法</summary>
+        </member>
+        <member name="M:XCode.Test.EntityTest`1.FindByKeyForEdit(System.Guid,System.String)">
+            <summary>根据主键查询一个实体测试实体对象用于表单编辑</summary>
+            <param name="guid">主键一</param>
+            <param name="guid2">主键二</param>
+            <returns></returns>
+        </member>
+        <member name="M:XCode.Test.EntityTest`1.FindByName(System.String)">
+            <summary>根据名称查找</summary>
+            <param name="name">名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:XCode.Test.EntityTest`1.FindAllByIsEnableAndStartDateAndEndTime(System.Boolean,System.DateTime,System.DateTime)">
+            <summary>根据启用、开始日期、结束时间查找</summary>
+            <param name="isenable">启用</param>
+            <param name="startdate">开始日期</param>
+            <param name="endtime">结束时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:XCode.Test.EntityTest`1.FindByID(System.SByte)">
+            <summary>根据自增编号查找</summary>
+            <param name="id">自增编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:XCode.Test.EntityTest`1.FindByGuidAndGuid2(System.Guid,System.String)">
+            <summary>根据主键一、主键二查找</summary>
+            <param name="guid">主键一</param>
+            <param name="guid2">主键二</param>
+            <returns></returns>
+        </member>
+        <member name="M:XCode.Test.EntityTest`1.SearchWhere(System.String)">
+            <summary>构造搜索条件</summary>
+            <param name="key">关键字</param>
+            <returns></returns>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.Guid">
+            <summary>主键一</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.Guid2">
+            <summary>主键二</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.ID">
+            <summary>自增编号</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.ID2">
+            <summary>编号二</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.Name">
+            <summary>名称</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.Password">
+            <summary>密码</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.DisplayName">
+            <summary>显示名</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.IsEnable">
+            <summary>启用</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.Logins">
+            <summary>登录次数</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.LastLogin">
+            <summary>最后登陆</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.StartDate">
+            <summary>开始日期</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.EndTime">
+            <summary>结束时间</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.Total">
+            <summary>总数</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.Item2">
+            <summary>百分比</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.EntityTest2">
+            <summary>实数</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.Money">
+            <summary>金额</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.File">
+            <summary>文件</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.Remark">
+            <summary>备注一</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.Remark2">
+            <summary>备注二</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.Description">
+            <summary>说明</summary>
+        </member>
+        <member name="P:XCode.Test.EntityTest`1.Item(System.String)">
+            <summary>
+            获取/设置 字段值。
+            一个索引，基类使用反射实现。
+            派生实体类可重写该索引，以避免反射带来的性能损耗
+            </summary>
+            <param name="name">字段名</param>
+            <returns></returns>
+        </member>
+        <member name="T:XCode.Test.EntityTest`1._">
+            <summary>取得实体测试字段信息的快捷方式</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.Guid">
+            <summary>主键一</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.Guid2">
+            <summary>主键二</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.ID">
+            <summary>自增编号</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.ID2">
+            <summary>编号二</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.Name">
+            <summary>名称</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.Password">
+            <summary>密码</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.DisplayName">
+            <summary>显示名</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.IsEnable">
+            <summary>启用</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.Logins">
+            <summary>登录次数</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.LastLogin">
+            <summary>最后登陆</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.StartDate">
+            <summary>开始日期</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.EndTime">
+            <summary>结束时间</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.Total">
+            <summary>总数</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.Item2">
+            <summary>百分比</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.EntityTest2">
+            <summary>实数</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.Money">
+            <summary>金额</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.File">
+            <summary>文件</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.Remark">
+            <summary>备注一</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.Remark2">
+            <summary>备注二</summary>
+        </member>
+        <member name="F:XCode.Test.EntityTest`1._.Description">
+            <summary>说明</summary>
+        </member>
+        <member name="T:XCode.Test.EntityTest">
+            <summary>实体测试</summary>
+        </member>
         <member name="T:XCode.EntityTree`1">
             <summary>主键为整型的实体树基类</summary>
             <typeparam name="TEntity"></typeparam>
