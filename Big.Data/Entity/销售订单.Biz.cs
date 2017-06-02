@@ -58,16 +58,13 @@ namespace Big.Data.Entity
         #endregion
 
         #region 高级查询
-        // 以下为自定义高级查询的例子
-
         /// <summary>查询满足条件的记录集，分页、排序</summary>
-        /// <param name="userid">用户编号</param>
         /// <param name="start">开始时间</param>
         /// <param name="end">结束时间</param>
         /// <param name="key">关键字</param>
         /// <param name="param">分页排序参数，同时返回满足条件的总记录数</param>
         /// <returns>实体集</returns>
-        public static EntityList<SalesOrder> Search(Int32 userid, DateTime start, DateTime end, String key, PageParameter param)
+        public static EntityList<SalesOrder> Search(DateTime start, DateTime end, String key, PageParameter param)
         {
             var exp = new WhereExpression();
 

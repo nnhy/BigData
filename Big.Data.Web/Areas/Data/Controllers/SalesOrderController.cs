@@ -16,7 +16,8 @@ namespace Big.Data.Web.Areas.Data.Controllers
         /// <returns></returns>
         protected override ActionResult IndexView(Pager p)
         {
-            var list = SalesOrder.Search(0, p["dtStart"].ToDateTime(), p["dtEnd"].ToDateTime(), p["Q"], p);
+            // 禁止
+            var list = SalesOrder.Search(p["dtStart"].ToDateTime(), p["dtEnd"].ToDateTime(), p["Q"], p);
 
             return View("List", list);
         }
