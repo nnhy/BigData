@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Big.Data.Entity;
 using NewLife.Cube;
@@ -16,7 +13,9 @@ namespace Big.Data.Web.Areas.Data.Controllers
         /// <returns></returns>
         protected override ActionResult IndexView(Pager p)
         {
-            // 禁止
+            // 禁止非索引字段排序
+            if (!p.Sort.EqualIgnoreCase("", "ID", "Number")) p.Sort = null;
+
             var list = SalesOrder.Search(p["dtStart"].ToDateTime(), p["dtEnd"].ToDateTime(), p["Q"], p);
 
             return View("List", list);
