@@ -53,3 +53,9 @@ admin/admin
 
 + 租用阿里云最低配置ECS，单核1G，1M带宽，每年300块，每天九毛钱
 + 部署BigData项目到ECS，访问正常
+
+### 源码及数据库
+大数据源码 http://git.newlifex.com/Stone/BigData
+大数据镜像 https://github.com/nnhy/BigData
+4亿订单数据 http://pan.baidu.com/s/1skZJ2ih
+2亿订单数据 http://pan.baidu.com/s/1bo9NFFx
