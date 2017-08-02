@@ -107,8 +107,8 @@
         <member name="T:NewLife.Cube.Admin.Controllers.LogController">
             <summary>日志控制器</summary>
         </member>
-        <member name="M:NewLife.Cube.Admin.Controllers.LogController.IndexView(NewLife.Web.Pager)">
-            <summary>列表页视图。子控制器可重载，以传递更多信息给视图，比如修改要显示的列</summary>
+        <member name="M:NewLife.Cube.Admin.Controllers.LogController.Search(NewLife.Web.Pager)">
+            <summary>搜索数据集</summary>
             <param name="p"></param>
             <returns></returns>
         </member>
@@ -132,6 +132,10 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.LogController.Clear">
+            <summary>清空全表数据</summary>
+            <returns></returns>
+        </member>
         <member name="T:NewLife.Cube.Admin.Controllers.MenuController">
             <summary>菜单控制器</summary>
         </member>
@@ -140,6 +144,14 @@
         </member>
         <member name="T:NewLife.Cube.Admin.Controllers.CubeController">
             <summary>系统设置控制器</summary>
+        </member>
+        <member name="T:NewLife.Cube.Admin.Controllers.UserOnlineController">
+            <summary>用户在线控制器</summary>
+        </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.UserOnlineController.Add(XCode.Membership.UserOnline)">
+            <summary>不允许添加修改日志</summary>
+            <param name="entity"></param>
+            <returns></returns>
         </member>
         <member name="T:NewLife.Cube.Admin.Controllers.XCodeController">
             <summary>设置控制器</summary>
@@ -150,8 +162,8 @@
         <member name="T:NewLife.Cube.Admin.Controllers.UserController">
             <summary>用户控制器</summary>
         </member>
-        <member name="M:NewLife.Cube.Admin.Controllers.UserController.IndexView(NewLife.Web.Pager)">
-            <summary>列表页视图。子控制器可重载，以传递更多信息给视图，比如修改要显示的列</summary>
+        <member name="M:NewLife.Cube.Admin.Controllers.UserController.Search(NewLife.Web.Pager)">
+            <summary>搜索数据集</summary>
             <param name="p"></param>
             <returns></returns>
         </member>
@@ -304,6 +316,10 @@
         </member>
         <member name="M:NewLife.Cube.ObjectController`1.OnActionExecuting(System.Web.Mvc.ActionExecutingContext)">
             <summary>动作执行前</summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="M:NewLife.Cube.ObjectController`1.OnActionExecuted(System.Web.Mvc.ActionExecutedContext)">
+            <summary>执行后</summary>
             <param name="filterContext"></param>
         </member>
         <member name="M:NewLife.Cube.ObjectController`1.Index">
@@ -638,6 +654,10 @@
             <param name="modelType"></param>
             <returns></returns>
         </member>
+        <member name="M:NewLife.Cube.EntityModelBinder.SetEntity(XCode.IEntity)">
+            <summary>呈现表单前，保存实体对象。提交时优先使用该对象而不是去数据库查找，避免脏写</summary>
+            <param name="entity"></param>
+        </member>
         <member name="T:NewLife.Cube.EntityModelBinderProvider">
             <summary>实体模型绑定器提供者，为所有XCode实体类提供实体模型绑定器</summary>
         </member>
@@ -674,6 +694,24 @@
         </member>
         <member name="M:NewLife.Cube.EntityController`1.#ctor">
             <summary>构造函数</summary>
+        </member>
+        <member name="M:NewLife.Cube.EntityController`1.OnActionExecuted(System.Web.Mvc.ActionExecutedContext)">
+            <summary>执行后</summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="M:NewLife.Cube.EntityController`1.Search(NewLife.Web.Pager)">
+            <summary>搜索数据集</summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.EntityController`1.Find(System.Object)">
+            <summary>查找单行数据</summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.EntityController`1.ExportData">
+            <summary>导出当前页以后的数据</summary>
+            <returns></returns>
         </member>
         <member name="M:NewLife.Cube.EntityController`1.Index(NewLife.Web.Pager)">
             <summary>数据列表首页</summary>
@@ -758,14 +796,12 @@
             <summary>导出Excel</summary>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Cube.EntityController`1.OnExportExcel(System.IO.Stream,System.Collections.Generic.List{XCode.Configuration.FieldItem})">
+        <member name="M:NewLife.Cube.EntityController`1.OnExportExcel(System.Collections.Generic.List{XCode.Configuration.FieldItem})">
             <summary>导出Excel，可重载修改要输出的结果集</summary>
-            <param name="ms"></param>
             <param name="fs"></param>
         </member>
-        <member name="M:NewLife.Cube.EntityController`1.OnExportExcel(System.IO.Stream,System.Collections.Generic.List{XCode.Configuration.FieldItem},System.Collections.Generic.List{`0})">
+        <member name="M:NewLife.Cube.EntityController`1.OnExportExcel(System.Collections.Generic.List{XCode.Configuration.FieldItem},System.Collections.Generic.IEnumerable{`0})">
             <summary>导出Excel，可重载修改要输出的列</summary>
-            <param name="ms"></param>
             <param name="fs"></param>
             <param name="list"></param>
         </member>
@@ -880,19 +916,6 @@
             <summary>获取分组宽度</summary>
             <returns></returns>
         </member>
-        <member name="T:NewLife.Cube.Controllers.HomeController">
-            <summary>主页面</summary>
-        </member>
-        <member name="M:NewLife.Cube.Controllers.HomeController.Index">
-            <summary>主页面</summary>
-            <returns></returns>
-        </member>
-        <member name="M:NewLife.Cube.Controllers.HomeController.About">
-            <summary>应用程序描述</summary>
-        </member>
-        <member name="M:NewLife.Cube.Controllers.HomeController.Contact">
-            <summary>联系我们</summary>
-        </member>
         <member name="T:NewLife.Cube.EntityAuthorizeAttribute">
             <summary>实体授权特性</summary>
         </member>
@@ -928,6 +951,13 @@
             <summary>拦截异常</summary>
             <param name="ctx"></param>
         </member>
+        <member name="T:NewLife.Cube.Controllers.CubeHomeController">
+            <summary>主页面</summary>
+        </member>
+        <member name="M:NewLife.Cube.Controllers.CubeHomeController.Index">
+            <summary>主页面</summary>
+            <returns></returns>
+        </member>
         <member name="T:NewLife.Cube.MvcApplication">
             <summary>
             注意: 有关启用 IIS6 或 IIS7 经典模式的说明，
@@ -936,6 +966,12 @@
         </member>
         <member name="M:NewLife.Cube.MvcApplication.Application_Start">
             <summary>应用程序启动</summary>
+        </member>
+        <member name="T:NewLife.Cube.PreApplicationStartCode">
+            <summary>应用启动代码</summary>
+        </member>
+        <member name="M:NewLife.Cube.PreApplicationStartCode.Start">
+            <summary>Registers pre-application start code for web pages.</summary>
         </member>
         <member name="T:NewLife.Cube.Precompiled.AssemblyExtensions">
             <summary>程序集的扩展方法</summary>
@@ -1223,11 +1259,35 @@
         <member name="P:NewLife.Cube.Setting.PluginServer">
             <summary>扩展插件服务器。将从该网页上根据关键字分析链接并下载插件</summary>
         </member>
+        <member name="P:NewLife.Cube.Setting.StartPage">
+            <summary>工作台页面。进入后台的第一个内容页</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.Layout">
+            <summary>布局页。</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.DefaultRole">
+            <summary>默认角色。注册用户得到的角色</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.AllowRegister">
+            <summary>启用注册</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.AllowForgot">
+            <summary>启用取回密码</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.LoginTip">
+            <summary>登录提示。留空表示不显示登录提示信息</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.WebOnline">
+            <summary>用户在线。记录用户在线状态</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.WebBehavior">
+            <summary>用户行为。记录用户所有操作</summary>
+        </member>
         <member name="M:NewLife.Cube.Setting.#ctor">
             <summary>实例化</summary>
         </member>
-        <member name="M:NewLife.Cube.Setting.OnNew">
-            <summary>新建时调用</summary>
+        <member name="M:NewLife.Cube.Setting.OnLoaded">
+            <summary>加载时触发</summary>
         </member>
         <member name="T:NewLife.Bootstrap.BootstrapJs">
             <summary>Bootstrap脚本提供者</summary>

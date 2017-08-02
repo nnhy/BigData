@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 using Big.Data.Entity;
 using NewLife.Log;
@@ -28,6 +30,7 @@ namespace BigData
             Console.ReadKey(false);
         }
 
+        static Int32 _users = 4;
         static void Test1()
         {
             // 关闭日志
@@ -55,15 +58,20 @@ namespace BigData
                 // 批量提交事务
                 if (i > 0 && i % batch == 0)
                 {
-                    if (task != null && !task.IsOK()) task.Wait();
+                    var sw = Stopwatch.StartNew();
+                    if (task != null && !task.IsOK() && _users < 0) task.Wait();
                     task = Task.Run(() =>
                     {
                         var es = list;
                         list = new EntityList<SalesOrder>();
+                        Interlocked.Decrement(ref _users);
                         es.Insert();
+                        Interlocked.Increment(ref _users);
                     });
 
-                    Console.Title = "进度 {0:p2} 速度 {1}".F((double)i / total, stat);
+                    sw.Stop();
+                    Console.Title = "进度 {0:p2} 速度 {1} {2:n0}ms".F((double)i / total, stat, sw.ElapsedMilliseconds);
+                    //sw.Restart();
                 }
 
                 var sd = new SalesOrder();

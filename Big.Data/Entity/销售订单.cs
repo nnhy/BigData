@@ -22,7 +22,7 @@ namespace Big.Data.Entity
         [DisplayName("编号")]
         [Description("编号")]
         [DataObjectField(true, true, false, 10)]
-        [BindColumn(1, "ID", "编号", null, "int", 10, 0, false)]
+        [BindColumn("ID", "编号", "int", 10, 0)]
         public virtual Int32 ID
         {
             get { return _ID; }
@@ -34,7 +34,7 @@ namespace Big.Data.Entity
         [DisplayName("订单号")]
         [Description("订单号")]
         [DataObjectField(false, false, true, 50)]
-        [BindColumn(2, "Number", "订单号", null, "nvarchar(50)", 0, 0, true)]
+        [BindColumn("Number", "订单号", "nvarchar(50)", 0, 0)]
         public virtual String Number
         {
             get { return _Number; }
@@ -45,8 +45,8 @@ namespace Big.Data.Entity
         /// <summary>节点</summary>
         [DisplayName("节点")]
         [Description("节点")]
-        [DataObjectField(false, false, true, 10)]
-        [BindColumn(3, "NodeID", "节点", null, "int", 10, 0, false)]
+        [DataObjectField(false, false, false, 10)]
+        [BindColumn("NodeID", "节点", "int", 10, 0)]
         public virtual Int32 NodeID
         {
             get { return _NodeID; }
@@ -58,7 +58,7 @@ namespace Big.Data.Entity
         [DisplayName("动作")]
         [Description("动作")]
         [DataObjectField(false, false, true, 50)]
-        [BindColumn(4, "Action", "动作", null, "nvarchar(50)", 0, 0, true)]
+        [BindColumn("Action", "动作", "nvarchar(50)", 0, 0)]
         public virtual String Action
         {
             get { return _Action; }
@@ -70,7 +70,7 @@ namespace Big.Data.Entity
         [DisplayName("时间")]
         [Description("时间")]
         [DataObjectField(false, false, true, 3)]
-        [BindColumn(5, "CreateTime", "时间", null, "datetime", 3, 0, false)]
+        [BindColumn("CreateTime", "时间", "datetime", 3, 0)]
         public virtual DateTime CreateTime
         {
             get { return _CreateTime; }

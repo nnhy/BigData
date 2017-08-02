@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Tables Version="9.4.6345.18727">
+<Tables Version="9.5.6420.13918">
   <Table Name="SalesOrder" Description="销售订单" DbType="SqlServer">
     <Columns>
       <Column Name="ID" DataType="Int32" Identity="True" PrimaryKey="True" Description="编号" />
