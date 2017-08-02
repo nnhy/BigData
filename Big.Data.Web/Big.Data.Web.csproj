@@ -111,6 +111,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Data\Controllers\SalesOrderController.cs" />
     <Compile Include="Areas\Data\DataAreaRegistration.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -138,7 +139,6 @@
     <Folder Include="Areas\Data\Models\" />
     <Folder Include="Areas\Data\Views\SalesOrder\" />
     <Folder Include="Areas\Data\Views\Shared\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Big.Data\Big.Data.csproj">
