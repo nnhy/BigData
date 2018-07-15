@@ -11,8 +11,19 @@
             <summary>注册区域</summary>
             <param name="context"></param>
         </member>
+        <member name="T:NewLife.Cube.Admin.Controllers.AppLogController">
+            <summary>应用日志</summary>
+        </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.AppLogController.ScanActionMenu(XCode.Membership.IMenu)">
+            <summary>菜单不可见</summary>
+            <param name="menu"></param>
+            <returns></returns>
+        </member>
         <member name="T:NewLife.Cube.Admin.Controllers.DbController">
             <summary>数据库管理</summary>
+        </member>
+        <member name="P:NewLife.Cube.Admin.Controllers.DbController.MenuOrder">
+            <summary>菜单顺序。扫描是会反射读取</summary>
         </member>
         <member name="M:NewLife.Cube.Admin.Controllers.DbController.Index">
             <summary>数据库列表</summary>
@@ -28,6 +39,11 @@
             <param name="name"></param>
             <returns></returns>
         </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.DbController.BackupAndCompress(System.String)">
+            <summary>备份并压缩数据库</summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
         <member name="M:NewLife.Cube.Admin.Controllers.DbController.Download(System.String)">
             <summary>下载数据库备份</summary>
             <param name="name"></param>
@@ -35,6 +51,9 @@
         </member>
         <member name="T:NewLife.Cube.Admin.Controllers.FileController">
             <summary>文件管理</summary>
+        </member>
+        <member name="P:NewLife.Cube.Admin.Controllers.FileController.MenuOrder">
+            <summary>菜单顺序。扫描是会反射读取</summary>
         </member>
         <member name="M:NewLife.Cube.Admin.Controllers.FileController.Index(System.String,System.String)">
             <summary>文件管理主视图</summary>
@@ -92,6 +111,69 @@
             <summary>清空剪切板</summary>
             <returns></returns>
         </member>
+        <member name="T:NewLife.Cube.Admin.Controllers.AppController">
+            <summary>应用系统</summary>
+        </member>
+        <member name="T:NewLife.Cube.Admin.Controllers.UserTokenController">
+            <summary>用户令牌控制器</summary>
+        </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.UserTokenController.Search(NewLife.Web.Pager)">
+            <summary>搜索数据集</summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.UserTokenController.ValidPermission(NewLife.Cube.Entity.UserToken,System.ComponentModel.DataObjectMethodType,System.Boolean)">
+            <summary>验证权限</summary>
+            <param name="entity">实体对象</param>
+            <param name="type">操作类型</param>
+            <param name="post">是否提交数据阶段</param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.UserTokenController.ScanActionMenu(XCode.Membership.IMenu)">
+            <summary>菜单不可见</summary>
+            <param name="menu"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NewLife.Cube.Admin.Controllers.UserConnectController">
+            <summary>用户链接控制器</summary>
+        </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.UserConnectController.ScanActionMenu(XCode.Membership.IMenu)">
+            <summary>菜单不可见</summary>
+            <param name="menu"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NewLife.Cube.Admin.Controllers.VisitStatController">
+            <summary>访问统计控制器</summary>
+        </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.VisitStatController.Search(NewLife.Web.Pager)">
+            <summary>搜索数据集</summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.VisitStatController.Add(XCode.Membership.VisitStat)">
+            <summary>不允许添加修改</summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.VisitStatController.Edit(XCode.Membership.VisitStat)">
+            <summary>不允许添加修改</summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.VisitStatController.Delete(System.Int32)">
+            <summary>不允许删除</summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.VisitStatController.Clear">
+            <summary>清空全表数据</summary>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.VisitStatController.ScanActionMenu(XCode.Membership.IMenu)">
+            <summary>菜单不可见</summary>
+            <param name="menu"></param>
+            <returns></returns>
+        </member>
         <member name="T:NewLife.Cube.Admin.Controllers.RoleController">
             <summary>角色控制器</summary>
         </member>
@@ -99,9 +181,18 @@
             <summary>动作执行前</summary>
             <param name="filterContext"></param>
         </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.RoleController.Search(NewLife.Web.Pager)">
+            <summary>搜索数据集</summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
         <member name="M:NewLife.Cube.Admin.Controllers.RoleController.Edit(XCode.Membership.Role)">
             <summary>保存</summary>
             <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.RoleController.Print">
+            <summary>打印</summary>
             <returns></returns>
         </member>
         <member name="T:NewLife.Cube.Admin.Controllers.LogController">
@@ -127,11 +218,6 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Cube.Admin.Controllers.LogController.DeleteAjax(System.Int32)">
-            <summary>不允许删除日志</summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
         <member name="M:NewLife.Cube.Admin.Controllers.LogController.Clear">
             <summary>清空全表数据</summary>
             <returns></returns>
@@ -141,6 +227,11 @@
         </member>
         <member name="T:NewLife.Cube.Admin.Controllers.CoreController">
             <summary>设置控制器</summary>
+        </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.CoreController.ScanActionMenu(XCode.Membership.IMenu)">
+            <summary>菜单不可见</summary>
+            <param name="menu"></param>
+            <returns></returns>
         </member>
         <member name="T:NewLife.Cube.Admin.Controllers.CubeController">
             <summary>系统设置控制器</summary>
@@ -153,11 +244,26 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.UserOnlineController.ScanActionMenu(XCode.Membership.IMenu)">
+            <summary>菜单不可见</summary>
+            <param name="menu"></param>
+            <returns></returns>
+        </member>
         <member name="T:NewLife.Cube.Admin.Controllers.XCodeController">
             <summary>设置控制器</summary>
         </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.XCodeController.ScanActionMenu(XCode.Membership.IMenu)">
+            <summary>菜单不可见</summary>
+            <param name="menu"></param>
+            <returns></returns>
+        </member>
         <member name="T:NewLife.Cube.Admin.Controllers.SysController">
             <summary>系统设置控制器</summary>
+        </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.SysController.ScanActionMenu(XCode.Membership.IMenu)">
+            <summary>菜单不可见</summary>
+            <param name="menu"></param>
+            <returns></returns>
         </member>
         <member name="T:NewLife.Cube.Admin.Controllers.UserController">
             <summary>用户控制器</summary>
@@ -172,17 +278,15 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Cube.Admin.Controllers.UserController.Login(System.String)">
+        <member name="M:NewLife.Cube.Admin.Controllers.UserController.Login">
             <summary>登录</summary>
-            <param name="returnUrl"></param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Cube.Admin.Controllers.UserController.Login(System.String,System.String,System.Nullable{System.Boolean},System.String)">
+        <member name="M:NewLife.Cube.Admin.Controllers.UserController.Login(System.String,System.String,System.Nullable{System.Boolean})">
             <summary>登录</summary>
             <param name="username"></param>
             <param name="password"></param>
             <param name="remember"></param>
-            <param name="returnUrl"></param>
             <returns></returns>
         </member>
         <member name="M:NewLife.Cube.Admin.Controllers.UserController.Logout">
@@ -199,11 +303,6 @@
             <param name="user"></param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Cube.Admin.Controllers.UserController.ForgetPassword(System.String)">
-            <summary>忘记密码</summary>
-            <param name="email"></param>
-            <returns></returns>
-        </member>
         <member name="M:NewLife.Cube.Admin.Controllers.UserController.Register(System.String,System.String,System.String,System.String)">
             <summary>注册</summary>
             <param name="email"></param>
@@ -217,8 +316,21 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.UserController.EnableSelect(System.String)">
+            <summary>批量启用</summary>
+            <param name="keys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.UserController.DisableSelect(System.String)">
+            <summary>批量禁用</summary>
+            <param name="keys"></param>
+            <returns></returns>
+        </member>
         <member name="T:NewLife.Cube.Admin.Controllers.IndexController">
             <summary>首页</summary>
+        </member>
+        <member name="P:NewLife.Cube.Admin.Controllers.IndexController.MenuOrder">
+            <summary>菜单顺序。扫描是会反射读取</summary>
         </member>
         <member name="M:NewLife.Cube.Admin.Controllers.IndexController.Index">
             <summary>首页</summary>
@@ -227,6 +339,10 @@
         <member name="M:NewLife.Cube.Admin.Controllers.IndexController.Main(System.String)">
             <summary>服务器信息</summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Admin.Controllers.IndexController.Restart">
+            <summary>重启</summary>
             <returns></returns>
         </member>
         <member name="M:NewLife.Cube.Admin.Controllers.IndexController.ScanActionMenu(XCode.Membership.IMenu)">
@@ -276,6 +392,39 @@
         <member name="P:NewLife.Cube.Admin.DbItem.Backups">
             <summary>备份数</summary>
         </member>
+        <member name="T:NewLife.Cube.ControllerHelper">
+            <summary>控制器帮助类</summary>
+        </member>
+        <member name="M:NewLife.Cube.ControllerHelper.JsonTips(System.Object,System.String)">
+            <summary>返回结果并跳转</summary>
+            <param name="data">结果。可以是错误文本、成功文本、其它结构化数据</param>
+            <param name="url">提示信息后跳转的目标地址，[refresh]表示刷新当前页</param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.ControllerHelper.JsonRefresh(System.Object)">
+            <summary>返回结果并刷新</summary>
+            <param name="data">消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.ControllerHelper.NoPermission(System.Web.Mvc.AuthorizationContext,XCode.Membership.PermissionFlags)">
+            <summary>无权访问</summary>
+            <param name="filterContext"></param>
+            <param name="pm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.ControllerHelper.NoPermission(System.Web.Mvc.Controller,System.String,XCode.Membership.PermissionFlags)">
+            <summary>无权访问</summary>
+            <param name="controller"></param>
+            <param name="action"></param>
+            <param name="pm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.ControllerHelper.NoPermission(System.Web.Mvc.ControllerBase,NewLife.Cube.NoPermissionException)">
+            <summary>无权访问</summary>
+            <param name="controller"></param>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
         <member name="T:NewLife.Cube.EntityTreeController`1">
             <summary>实体树控制器基类</summary>
             <typeparam name="TEntity"></typeparam>
@@ -283,14 +432,6 @@
         <member name="M:NewLife.Cube.EntityTreeController`1.IndexView(NewLife.Web.Pager)">
             <summary>列表页视图。子控制器可重载，以传递更多信息给视图，比如修改要显示的列</summary>
             <param name="p"></param>
-            <returns></returns>
-        </member>
-        <member name="M:NewLife.Cube.EntityTreeController`1.OnExportXml">
-            <summary>要导出Xml的对象</summary>
-            <returns></returns>
-        </member>
-        <member name="M:NewLife.Cube.EntityTreeController`1.OnExportJson">
-            <summary>要导出Json的对象</summary>
             <returns></returns>
         </member>
         <member name="M:NewLife.Cube.EntityTreeController`1.Up(System.Int32)">
@@ -308,11 +449,35 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="T:NewLife.Cube.CubeModule">
+            <summary>魔方处理模块</summary>
+        </member>
+        <member name="M:NewLife.Cube.CubeModule.System#Web#IHttpModule#Init(System.Web.HttpApplication)">
+            <summary>初始化模块，准备拦截请求。</summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:NewLife.Cube.CubeModule.OnRequest">
+            <summary>初始化模块，准备拦截请求。</summary>
+        </member>
+        <member name="T:NewLife.Cube.NoPermissionException">
+            <summary>没有权限</summary>
+        </member>
+        <member name="P:NewLife.Cube.NoPermissionException.Permission">
+            <summary>权限</summary>
+        </member>
+        <member name="M:NewLife.Cube.NoPermissionException.#ctor(XCode.Membership.PermissionFlags,System.String)">
+            <summary>实例化</summary>
+            <param name="pm"></param>
+            <param name="message"></param>
+        </member>
         <member name="T:NewLife.Cube.ObjectController`1">
             <summary>对象控制器</summary>
         </member>
         <member name="P:NewLife.Cube.ObjectController`1.Value">
             <summary>要展现和修改的对象</summary>
+        </member>
+        <member name="P:NewLife.Cube.ObjectController`1.MenuOrder">
+            <summary>菜单顺序。扫描是会反射读取</summary>
         </member>
         <member name="M:NewLife.Cube.ObjectController`1.OnActionExecuting(System.Web.Mvc.ActionExecutingContext)">
             <summary>动作执行前</summary>
@@ -326,7 +491,7 @@
             <summary>显示对象</summary>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Cube.ObjectController`1.Index(`0)">
+        <member name="M:NewLife.Cube.ObjectController`1.Update(`0)">
             <summary>保存对象</summary>
             <param name="obj"></param>
             <returns></returns>
@@ -348,15 +513,40 @@
             <param name="menu">该控制器所在菜单</param>
             <returns></returns>
         </member>
+        <member name="M:NewLife.Cube.ControllerBaseX.JsonTips(System.Object,System.String)">
+            <summary>返回结果并跳转</summary>
+            <param name="data">结果。可以是错误文本、成功文本、其它结构化数据</param>
+            <param name="url">提示信息后跳转的目标地址，[refresh]表示刷新当前页</param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.ControllerBaseX.JsonRefresh(System.Object)">
+            <summary>返回结果并刷新</summary>
+            <param name="data">消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.ControllerBaseX.JsonOK(System.Object,System.Object)">
+            <summary>返回Json数据</summary>
+            <param name="data">数据对象，作为data成员返回</param>
+            <param name="extend">与data并行的其它顶级成员</param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.ControllerBaseX.JsonError(System.Object,System.Object)">
+            <summary>返回Json错误</summary>
+            <param name="data">数据对象或异常对象，作为data成员返回</param>
+            <param name="extend">与data并行的其它顶级成员</param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.ControllerBaseX.OnJsonSerialize(System.Object)">
+            <summary>Json序列化。默认使用FastJson</summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
         <member name="T:NewLife.Cube.DbRunTimeModule">
             <summary>页面查询执行时间模块</summary>
         </member>
         <member name="M:NewLife.Cube.DbRunTimeModule.System#Web#IHttpModule#Init(System.Web.HttpApplication)">
             <summary>初始化模块，准备拦截请求。</summary>
             <param name="context"></param>
-        </member>
-        <member name="P:NewLife.Cube.DbRunTimeModule.Context">
-            <summary>上下文</summary>
         </member>
         <member name="P:NewLife.Cube.DbRunTimeModule.DbRunTimeFormat">
             <summary>执行时间字符串</summary>
@@ -563,7 +753,7 @@
             <param name="autoPostback">自动回发</param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Cube.HtmlExtensions.ForDropDownList(System.Web.Mvc.HtmlHelper,System.String,XCode.IEntityList,System.String,System.Boolean)">
+        <member name="M:NewLife.Cube.HtmlExtensions.ForDropDownList(System.Web.Mvc.HtmlHelper,System.String,System.Collections.Generic.IList{XCode.IEntity},System.String,System.Boolean)">
             <summary>实体列表的下拉列表。单选，自动匹配当前模型的选中项</summary>
             <param name="Html"></param>
             <param name="name"></param>
@@ -581,7 +771,7 @@
             <param name="autoPostback">自动回发</param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Cube.HtmlExtensions.ForListBox(System.Web.Mvc.HtmlHelper,System.String,XCode.IEntityList,System.Boolean)">
+        <member name="M:NewLife.Cube.HtmlExtensions.ForListBox(System.Web.Mvc.HtmlHelper,System.String,System.Collections.Generic.IList{XCode.IEntity},System.Boolean)">
             <summary>实体列表的下拉列表。多选，自动匹配当前模型的选中项，支持数组类型或字符串类型（自动分割）的选中项</summary>
             <param name="Html"></param>
             <param name="name"></param>
@@ -685,6 +875,12 @@
             <param name="flags">是否拥有多个权限中的任意一个，或的关系。如果需要表示与的关系，可以传入一个多权限位合并</param>
             <returns></returns>
         </member>
+        <member name="M:NewLife.Cube.MembershipExtensions.Has(System.Web.Mvc.WebViewPage,XCode.Membership.PermissionFlags[])">
+            <summary>用户只有拥有当前菜单的指定权限</summary>
+            <param name="page">页面</param>
+            <param name="flags">是否拥有多个权限中的任意一个，或的关系。如果需要表示与的关系，可以传入一个多权限位合并</param>
+            <returns></returns>
+        </member>
         <member name="T:NewLife.Cube.EntityController`1">
             <summary>实体控制器基类</summary>
             <typeparam name="TEntity"></typeparam>
@@ -695,8 +891,16 @@
         <member name="M:NewLife.Cube.EntityController`1.#ctor">
             <summary>构造函数</summary>
         </member>
+        <member name="M:NewLife.Cube.EntityController`1.OnActionExecuting(System.Web.Mvc.ActionExecutingContext)">
+            <summary>动作执行前</summary>
+            <param name="filterContext"></param>
+        </member>
         <member name="M:NewLife.Cube.EntityController`1.OnActionExecuted(System.Web.Mvc.ActionExecutedContext)">
             <summary>执行后</summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="M:NewLife.Cube.EntityController`1.OnException(System.Web.Mvc.ExceptionContext)">
+            <summary>触发异常时</summary>
             <param name="filterContext"></param>
         </member>
         <member name="M:NewLife.Cube.EntityController`1.Search(NewLife.Web.Pager)">
@@ -707,6 +911,10 @@
         <member name="M:NewLife.Cube.EntityController`1.Find(System.Object)">
             <summary>查找单行数据</summary>
             <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:NewLife.Cube.EntityController`1.SelectKeys">
+            <summary>获取选中键</summary>
             <returns></returns>
         </member>
         <member name="M:NewLife.Cube.EntityController`1.ExportData">
@@ -732,13 +940,6 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Cube.EntityController`1.DeleteAjax(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
         <member name="M:NewLife.Cube.EntityController`1.Add">
             <summary>表单，添加/修改</summary>
             <returns></returns>
@@ -761,6 +962,12 @@
         <member name="M:NewLife.Cube.EntityController`1.FormView(`0)">
             <summary>表单页视图。子控制器可以重载，以传递更多信息给视图，比如修改要显示的列</summary>
             <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.EntityController`1.Json(System.String,NewLife.Web.Pager)">
+            <summary>数据接口</summary>
+            <param name="id">令牌</param>
+            <param name="p">分页</param>
             <returns></returns>
         </member>
         <member name="M:NewLife.Cube.EntityController`1.ExportXml">
@@ -805,6 +1012,14 @@
             <param name="fs"></param>
             <param name="list"></param>
         </member>
+        <member name="M:NewLife.Cube.EntityController`1.DeleteSelect">
+            <summary>删除选中</summary>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.EntityController`1.DeleteAll">
+            <summary>删除全部</summary>
+            <returns></returns>
+        </member>
         <member name="M:NewLife.Cube.EntityController`1.Clear">
             <summary>清空全表数据</summary>
             <returns></returns>
@@ -832,9 +1047,18 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Cube.EntityController`1.Valid(`0)">
+        <member name="M:NewLife.Cube.EntityController`1.Valid(`0,System.ComponentModel.DataObjectMethodType,System.Boolean)">
             <summary>验证实体对象</summary>
-            <param name="entity"></param>
+            <param name="entity">实体对象</param>
+            <param name="type">操作类型</param>
+            <param name="post">是否提交数据阶段</param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.EntityController`1.ValidPermission(`0,System.ComponentModel.DataObjectMethodType,System.Boolean)">
+            <summary>验证实体对象</summary>
+            <param name="entity">实体对象</param>
+            <param name="type">操作类型</param>
+            <param name="post">是否提交数据阶段</param>
             <returns></returns>
         </member>
         <member name="P:NewLife.Cube.EntityController`1.ListFields">
@@ -848,14 +1072,16 @@
             <param name="isForm">是否是表单</param>
             <returns></returns>
         </member>
+        <member name="P:NewLife.Cube.EntityController`1.MenuOrder">
+            <summary>菜单顺序。扫描是会反射读取</summary>
+        </member>
         <member name="M:NewLife.Cube.EntityController`1.ScanActionMenu(XCode.Membership.IMenu)">
             <summary>自动从实体类拿到显示名</summary>
             <param name="menu"></param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Cube.EntityController`1.OnActionExecuting(System.Web.Mvc.ActionExecutingContext)">
-            <summary>动作执行前</summary>
-            <param name="filterContext"></param>
+        <member name="P:NewLife.Cube.EntityController`1.IsJsonRequest">
+            <summary>是否Json请求</summary>
         </member>
         <member name="T:NewLife.Cube.ConfigController`1">
             <summary>设置控制器</summary>
@@ -886,6 +1112,34 @@
         <member name="M:NewLife.Cube.ViewHelper.Bootstrap(System.Web.Mvc.Controller)">
             <summary>获取页面设置</summary>
             <param name="controller"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.ViewHelper.GetRouteKey(XCode.IEntity)">
+            <summary>获取路由Key</summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.ViewHelper.GetRouteValue(NewLife.Web.Pager)">
+            <summary>获取排序分页以外的参数</summary>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.ViewHelper.EnableSelect(System.Web.Mvc.WebViewPage)">
+            <summary>是否启用多选</summary>
+            <param name="page"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.ViewHelper.GetAvatarUrl(XCode.Membership.IUser)">
+            <summary>获取头像地址</summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.ViewHelper.IsDevelop">
+            <summary>当前是否开发环境。判断csproj文件</summary>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.ViewHelper.GetLogo(System.String)">
+            <summary>获取指定名称的Logo图标</summary>
+            <param name="name"></param>
             <returns></returns>
         </member>
         <member name="T:NewLife.Cube.Bootstrap">
@@ -919,9 +1173,6 @@
         <member name="T:NewLife.Cube.EntityAuthorizeAttribute">
             <summary>实体授权特性</summary>
         </member>
-        <member name="P:NewLife.Cube.EntityAuthorizeAttribute.ResourceName">
-            <summary>资源名称。需要增加新菜单而不需要控制器名称时，指定资源名称</summary>
-        </member>
         <member name="P:NewLife.Cube.EntityAuthorizeAttribute.Permission">
             <summary>授权项</summary>
         </member>
@@ -935,13 +1186,17 @@
             <summary>实例化实体授权特性</summary>
             <param name="permission"></param>
         </member>
+        <member name="M:NewLife.Cube.EntityAuthorizeAttribute.OnAuthorization(System.Web.Mvc.AuthorizationContext)">
+            <summary>授权发生时触发</summary>
+            <param name="filterContext"></param>
+        </member>
         <member name="M:NewLife.Cube.EntityAuthorizeAttribute.AuthorizeCore(System.Web.HttpContextBase)">
             <summary>授权核心</summary>
             <param name="httpContext"></param>
             <returns></returns>
         </member>
-        <member name="M:NewLife.Cube.EntityAuthorizeAttribute.OnAuthorization(System.Web.Mvc.AuthorizationContext)">
-            <summary>授权发生时触发</summary>
+        <member name="M:NewLife.Cube.EntityAuthorizeAttribute.HandleUnauthorizedRequest(System.Web.Mvc.AuthorizationContext)">
+            <summary>未认证请求</summary>
             <param name="filterContext"></param>
         </member>
         <member name="T:NewLife.Cube.MvcHandleErrorAttribute">
@@ -951,11 +1206,1020 @@
             <summary>拦截异常</summary>
             <param name="ctx"></param>
         </member>
+        <member name="T:NewLife.Cube.WeuiJS">
+             <summary>
+            提示
+             </summary>
+        </member>
+        <member name="M:NewLife.Cube.WeuiJS.Toast(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:NewLife.Cube.WeuiJS.Alert(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
         <member name="T:NewLife.Cube.Controllers.CubeHomeController">
             <summary>主页面</summary>
         </member>
         <member name="M:NewLife.Cube.Controllers.CubeHomeController.Index">
             <summary>主页面</summary>
+            <returns></returns>
+        </member>
+        <member name="T:NewLife.Cube.Controllers.SsoController">
+            <summary>单点登录控制器</summary>
+        </member>
+        <member name="P:NewLife.Cube.Controllers.SsoController.Provider">
+            <summary>当前提供者</summary>
+        </member>
+        <member name="P:NewLife.Cube.Controllers.SsoController.OAuth">
+            <summary>单点登录服务端</summary>
+        </member>
+        <member name="M:NewLife.Cube.Controllers.SsoController.Index">
+            <summary>首页</summary>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Controllers.SsoController.OnException(System.Web.Mvc.ExceptionContext)">
+            <summary>发生错误时</summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="M:NewLife.Cube.Controllers.SsoController.Login(System.String)">
+            <summary>第三方登录</summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Controllers.SsoController.LoginInfo(System.String,System.String)">
+            <summary>第三方登录完成后跳转到此</summary>
+            <param name="code"></param>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Controllers.SsoController.Logout">
+            <summary>注销登录</summary>
+            <remarks>
+            子系统引导用户跳转到这里注销登录。
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Controllers.SsoController.Bind(System.String)">
+            <summary>绑定</summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Controllers.SsoController.UnBind(System.String)">
+            <summary>取消绑定</summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Controllers.SsoController.Authorize(System.String,System.String,System.String,System.String,System.String)">
+            <summary>1，验证用户身份</summary>
+            <remarks>
+            子系统需要验证访问者身份时，引导用户跳转到这里。
+            用户登录完成后，得到一个独一无二的code，并跳转回去子系统。
+            </remarks>
+            <param name="client_id">应用标识</param>
+            <param name="redirect_uri">回调地址</param>
+            <param name="response_type">响应类型。默认code</param>
+            <param name="scope">授权域</param>
+            <param name="state">用户状态数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Controllers.SsoController.Auth2(System.Int32)">
+            <summary>2，用户登录成功后返回这里</summary>
+            <remarks>
+            构建身份验证结构，返回code给子系统
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Controllers.SsoController.Access_Token(System.String,System.String,System.String,System.String)">
+            <summary>3，根据code获取令牌</summary>
+            <remarks>
+            子系统根据验证用户身份时得到的code，直接在服务器间请求本系统。
+            传递应用标识和密钥，主要是为了向本系统表明其合法身份。
+            </remarks>
+            <param name="client_id">应用标识</param>
+            <param name="client_secret">密钥</param>
+            <param name="code">代码</param>
+            <param name="grant_type">授权类型。</param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Controllers.SsoController.UserInfo(System.String)">
+            <summary>3，根据token获取用户信息</summary>
+            <param name="access_token">访问令牌</param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Controllers.SsoController.Avatar(System.Int32)">
+            <summary>获取用户头像</summary>
+            <param name="id">用户编号</param>
+            <returns></returns>
+        </member>
+        <member name="T:NewLife.Cube.Entity.AppLog">
+            <summary>应用日志。用于OAuthServer的子系统</summary>
+            <summary>应用日志。用于OAuthServer的子系统</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.AppLog.App">
+            <summary>应用</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.AppLog.AppName">
+            <summary>应用</summary>
+        </member>
+        <member name="M:NewLife.Cube.Entity.AppLog.FindByID(System.Int32)">
+            <summary>根据编号查找</summary>
+            <param name="id">编号</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:NewLife.Cube.Entity.AppLog.Create(System.Int32,System.String,System.Boolean,System.String)">
+            <summary>创建日志</summary>
+            <param name="appid"></param>
+            <param name="action"></param>
+            <param name="success"></param>
+            <param name="remark"></param>
+            <returns></returns>
+        </member>
+        <member name="P:NewLife.Cube.Entity.AppLog.ID">
+            <summary>编号</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.AppLog.AppID">
+            <summary>应用</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.AppLog.Action">
+            <summary>操作</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.AppLog.Success">
+            <summary>成功</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.AppLog.Remark">
+            <summary>详细信息</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.AppLog.CreateUserID">
+            <summary>创建者</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.AppLog.CreateIP">
+            <summary>IP地址</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.AppLog.CreateTime">
+            <summary>时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.AppLog.Item(System.String)">
+            <summary>获取/设置 字段值</summary>
+            <param name="name">字段名</param>
+            <returns></returns>
+        </member>
+        <member name="T:NewLife.Cube.Entity.AppLog._">
+            <summary>取得应用日志字段信息的快捷方式</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.AppLog._.ID">
+            <summary>编号</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.AppLog._.AppID">
+            <summary>应用</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.AppLog._.Action">
+            <summary>操作</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.AppLog._.Success">
+            <summary>成功</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.AppLog._.Remark">
+            <summary>详细信息</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.AppLog._.CreateUserID">
+            <summary>创建者</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.AppLog._.CreateIP">
+            <summary>IP地址</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.AppLog._.CreateTime">
+            <summary>时间</summary>
+        </member>
+        <member name="T:NewLife.Cube.Entity.AppLog.__">
+            <summary>取得应用日志字段名称的快捷方式</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.AppLog.__.ID">
+            <summary>编号</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.AppLog.__.AppID">
+            <summary>应用</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.AppLog.__.Action">
+            <summary>操作</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.AppLog.__.Success">
+            <summary>成功</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.AppLog.__.Remark">
+            <summary>详细信息</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.AppLog.__.CreateUserID">
+            <summary>创建者</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.AppLog.__.CreateIP">
+            <summary>IP地址</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.AppLog.__.CreateTime">
+            <summary>时间</summary>
+        </member>
+        <member name="T:NewLife.Cube.Entity.IAppLog">
+            <summary>应用日志。用于OAuthServer的子系统接口</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IAppLog.ID">
+            <summary>编号</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IAppLog.AppID">
+            <summary>应用</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IAppLog.Action">
+            <summary>操作</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IAppLog.Success">
+            <summary>成功</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IAppLog.Remark">
+            <summary>详细信息</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IAppLog.CreateUserID">
+            <summary>创建者</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IAppLog.CreateIP">
+            <summary>IP地址</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IAppLog.CreateTime">
+            <summary>时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IAppLog.Item(System.String)">
+            <summary>获取/设置 字段值</summary>
+            <param name="name">字段名</param>
+            <returns></returns>
+        </member>
+        <member name="T:NewLife.Cube.Entity.App">
+            <summary>应用系统</summary>
+            <summary>应用系统。用于OAuthServer的子系统</summary>
+        </member>
+        <member name="M:NewLife.Cube.Entity.App.Valid(System.Boolean)">
+            <summary>验证数据，通过抛出异常的方式提示验证失败。</summary>
+            <param name="isNew">是否插入</param>
+        </member>
+        <member name="M:NewLife.Cube.Entity.App.ToString">
+            <summary>已重载。显示系统名称</summary>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Entity.App.FindByID(System.Int32)">
+            <summary>根据编号查找</summary>
+            <param name="id">编号</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:NewLife.Cube.Entity.App.FindByName(System.String)">
+            <summary>根据名称查找</summary>
+            <param name="name">名称</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:NewLife.Cube.Entity.App.ValidCallback(System.String)">
+            <summary>验证回调地址</summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Entity.App.ValidSource(System.String)">
+            <summary>验证来源地址</summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="P:NewLife.Cube.Entity.App.ID">
+            <summary>编号</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.App.Name">
+            <summary>名称。AppID</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.App.DisplayName">
+            <summary>显示名</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.App.Secret">
+            <summary>密钥。AppSecret</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.App.White">
+            <summary>白名单</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.App.Black">
+            <summary>黑名单。黑名单优先于白名单</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.App.Enable">
+            <summary>启用</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.App.Urls">
+            <summary>回调地址。用于限制回调地址安全性，多个地址逗号隔开</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.App.Auths">
+            <summary>次数</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.App.LastAuth">
+            <summary>最后请求</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.App.Remark">
+            <summary>内容</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.App.CreateUserID">
+            <summary>创建者</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.App.CreateTime">
+            <summary>创建时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.App.CreateIP">
+            <summary>创建地址</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.App.UpdateUserID">
+            <summary>更新者</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.App.UpdateTime">
+            <summary>更新时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.App.UpdateIP">
+            <summary>更新地址</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.App.Item(System.String)">
+            <summary>获取/设置 字段值</summary>
+            <param name="name">字段名</param>
+            <returns></returns>
+        </member>
+        <member name="T:NewLife.Cube.Entity.App._">
+            <summary>取得应用系统字段信息的快捷方式</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App._.ID">
+            <summary>编号</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App._.Name">
+            <summary>名称。AppID</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App._.DisplayName">
+            <summary>显示名</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App._.Secret">
+            <summary>密钥。AppSecret</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App._.White">
+            <summary>白名单</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App._.Black">
+            <summary>黑名单。黑名单优先于白名单</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App._.Enable">
+            <summary>启用</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App._.Urls">
+            <summary>回调地址。用于限制回调地址安全性，多个地址逗号隔开</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App._.Auths">
+            <summary>次数</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App._.LastAuth">
+            <summary>最后请求</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App._.Remark">
+            <summary>内容</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App._.CreateUserID">
+            <summary>创建者</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App._.CreateTime">
+            <summary>创建时间</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App._.CreateIP">
+            <summary>创建地址</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App._.UpdateUserID">
+            <summary>更新者</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App._.UpdateTime">
+            <summary>更新时间</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App._.UpdateIP">
+            <summary>更新地址</summary>
+        </member>
+        <member name="T:NewLife.Cube.Entity.App.__">
+            <summary>取得应用系统字段名称的快捷方式</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App.__.ID">
+            <summary>编号</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App.__.Name">
+            <summary>名称。AppID</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App.__.DisplayName">
+            <summary>显示名</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App.__.Secret">
+            <summary>密钥。AppSecret</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App.__.White">
+            <summary>白名单</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App.__.Black">
+            <summary>黑名单。黑名单优先于白名单</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App.__.Enable">
+            <summary>启用</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App.__.Urls">
+            <summary>回调地址。用于限制回调地址安全性，多个地址逗号隔开</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App.__.Auths">
+            <summary>次数</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App.__.LastAuth">
+            <summary>最后请求</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App.__.Remark">
+            <summary>内容</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App.__.CreateUserID">
+            <summary>创建者</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App.__.CreateTime">
+            <summary>创建时间</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App.__.CreateIP">
+            <summary>创建地址</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App.__.UpdateUserID">
+            <summary>更新者</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App.__.UpdateTime">
+            <summary>更新时间</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.App.__.UpdateIP">
+            <summary>更新地址</summary>
+        </member>
+        <member name="T:NewLife.Cube.Entity.IApp">
+            <summary>应用系统。用于OAuthServer的子系统接口</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IApp.ID">
+            <summary>编号</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IApp.Name">
+            <summary>名称。AppID</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IApp.DisplayName">
+            <summary>显示名</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IApp.Secret">
+            <summary>密钥。AppSecret</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IApp.White">
+            <summary>白名单</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IApp.Black">
+            <summary>黑名单。黑名单优先于白名单</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IApp.Enable">
+            <summary>启用</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IApp.Urls">
+            <summary>回调地址。用于限制回调地址安全性，多个地址逗号隔开</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IApp.Auths">
+            <summary>次数</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IApp.LastAuth">
+            <summary>最后请求</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IApp.Remark">
+            <summary>内容</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IApp.CreateUserID">
+            <summary>创建者</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IApp.CreateTime">
+            <summary>创建时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IApp.CreateIP">
+            <summary>创建地址</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IApp.UpdateUserID">
+            <summary>更新者</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IApp.UpdateTime">
+            <summary>更新时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IApp.UpdateIP">
+            <summary>更新地址</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IApp.Item(System.String)">
+            <summary>获取/设置 字段值</summary>
+            <param name="name">字段名</param>
+            <returns></returns>
+        </member>
+        <member name="T:NewLife.Cube.Entity.UserToken">
+            <summary>用户令牌。授权其他人直接拥有指定用户的身份，支持有效期，支持数据接口</summary>
+            <summary>用户令牌。授权其他人直接拥有指定用户的身份，支持有效期，支持数据接口</summary>
+        </member>
+        <member name="M:NewLife.Cube.Entity.UserToken.Valid(System.Boolean)">
+            <summary>检查参数</summary>
+            <param name="isNew"></param>
+        </member>
+        <member name="M:NewLife.Cube.Entity.UserToken.FindByID(System.Int32)">
+            <summary>根据编号查找</summary>
+            <param name="id">编号</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:NewLife.Cube.Entity.UserToken.FindByToken(System.String)">
+            <summary>根据令牌查找</summary>
+            <param name="token">令牌</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:NewLife.Cube.Entity.UserToken.FindAllByUserID(System.Int32)">
+            <summary>根据用户查找</summary>
+            <param name="userid">用户</param>
+            <returns>实体列表</returns>
+        </member>
+        <member name="M:NewLife.Cube.Entity.UserToken.Search(System.String,System.Int32,System.Nullable{System.Boolean},System.DateTime,System.DateTime,NewLife.Web.Pager)">
+            <summary>高级查询</summary>
+            <param name="token"></param>
+            <param name="userid"></param>
+            <param name="isEnable"></param>
+            <param name="start"></param>
+            <param name="end"></param>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Entity.UserToken.Valid(System.String)">
+            <summary>验证token是否可用</summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserToken.ID">
+            <summary>编号</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserToken.Token">
+            <summary>令牌</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserToken.Url">
+            <summary>地址。锁定该令牌只能访问该资源路径</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserToken.UserID">
+            <summary>用户。本地用户</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserToken.Expire">
+            <summary>过期时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserToken.Enable">
+            <summary>启用</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserToken.Times">
+            <summary>次数。该令牌使用次数</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserToken.LastIP">
+            <summary>最后地址</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserToken.LastTime">
+            <summary>最后时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserToken.CreateUserID">
+            <summary>创建用户</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserToken.CreateIP">
+            <summary>创建地址</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserToken.CreateTime">
+            <summary>创建时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserToken.UpdateUserID">
+            <summary>更新用户</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserToken.UpdateIP">
+            <summary>更新地址</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserToken.UpdateTime">
+            <summary>更新时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserToken.Remark">
+            <summary>备注</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserToken.Item(System.String)">
+            <summary>获取/设置 字段值</summary>
+            <param name="name">字段名</param>
+            <returns></returns>
+        </member>
+        <member name="T:NewLife.Cube.Entity.UserToken._">
+            <summary>取得用户令牌字段信息的快捷方式</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken._.ID">
+            <summary>编号</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken._.Token">
+            <summary>令牌</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken._.Url">
+            <summary>地址。锁定该令牌只能访问该资源路径</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken._.UserID">
+            <summary>用户。本地用户</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken._.Expire">
+            <summary>过期时间</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken._.Enable">
+            <summary>启用</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken._.Times">
+            <summary>次数。该令牌使用次数</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken._.LastIP">
+            <summary>最后地址</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken._.LastTime">
+            <summary>最后时间</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken._.CreateUserID">
+            <summary>创建用户</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken._.CreateIP">
+            <summary>创建地址</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken._.CreateTime">
+            <summary>创建时间</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken._.UpdateUserID">
+            <summary>更新用户</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken._.UpdateIP">
+            <summary>更新地址</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken._.UpdateTime">
+            <summary>更新时间</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken._.Remark">
+            <summary>备注</summary>
+        </member>
+        <member name="T:NewLife.Cube.Entity.UserToken.__">
+            <summary>取得用户令牌字段名称的快捷方式</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken.__.ID">
+            <summary>编号</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken.__.Token">
+            <summary>令牌</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken.__.Url">
+            <summary>地址。锁定该令牌只能访问该资源路径</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken.__.UserID">
+            <summary>用户。本地用户</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken.__.Expire">
+            <summary>过期时间</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken.__.Enable">
+            <summary>启用</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken.__.Times">
+            <summary>次数。该令牌使用次数</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken.__.LastIP">
+            <summary>最后地址</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken.__.LastTime">
+            <summary>最后时间</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken.__.CreateUserID">
+            <summary>创建用户</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken.__.CreateIP">
+            <summary>创建地址</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken.__.CreateTime">
+            <summary>创建时间</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken.__.UpdateUserID">
+            <summary>更新用户</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken.__.UpdateIP">
+            <summary>更新地址</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken.__.UpdateTime">
+            <summary>更新时间</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserToken.__.Remark">
+            <summary>备注</summary>
+        </member>
+        <member name="T:NewLife.Cube.Entity.IUserToken">
+            <summary>用户令牌。授权其他人直接拥有指定用户的身份，支持有效期，支持数据接口接口</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserToken.ID">
+            <summary>编号</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserToken.Token">
+            <summary>令牌</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserToken.Url">
+            <summary>地址。锁定该令牌只能访问该资源路径</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserToken.UserID">
+            <summary>用户。本地用户</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserToken.Expire">
+            <summary>过期时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserToken.Enable">
+            <summary>启用</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserToken.Times">
+            <summary>次数。该令牌使用次数</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserToken.LastIP">
+            <summary>最后地址</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserToken.LastTime">
+            <summary>最后时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserToken.CreateUserID">
+            <summary>创建用户</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserToken.CreateIP">
+            <summary>创建地址</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserToken.CreateTime">
+            <summary>创建时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserToken.UpdateUserID">
+            <summary>更新用户</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserToken.UpdateIP">
+            <summary>更新地址</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserToken.UpdateTime">
+            <summary>更新时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserToken.Remark">
+            <summary>备注</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserToken.Item(System.String)">
+            <summary>获取/设置 字段值</summary>
+            <param name="name">字段名</param>
+            <returns></returns>
+        </member>
+        <member name="T:NewLife.Cube.Entity.UserConnect">
+            <summary>用户链接。第三方绑定</summary>
+            <summary>用户链接。第三方绑定</summary>
+        </member>
+        <member name="M:NewLife.Cube.Entity.UserConnect.Valid(System.Boolean)">
+            <summary>验证数据，通过抛出异常的方式提示验证失败。</summary>
+            <param name="isNew">是否插入</param>
+        </member>
+        <member name="M:NewLife.Cube.Entity.UserConnect.FindByID(System.Int32)">
+            <summary>根据编号查找</summary>
+            <param name="id">编号</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:NewLife.Cube.Entity.UserConnect.FindByProviderAndOpenID(System.String,System.String)">
+            <summary>根据提供商、用户查找</summary>
+            <param name="provider">提供商</param>
+            <param name="openid">身份标识</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:NewLife.Cube.Entity.UserConnect.FindAllByUserID(System.Int32)">
+            <summary>根据用户查找</summary>
+            <param name="userid">用户</param>
+            <returns>实体列表</returns>
+        </member>
+        <member name="M:NewLife.Cube.Entity.UserConnect.Fill(NewLife.Web.OAuthClient)">
+            <summary>填充用户</summary>
+            <param name="client"></param>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserConnect.ID">
+            <summary>编号</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserConnect.Provider">
+            <summary>提供商</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserConnect.UserID">
+            <summary>用户。本地用户</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserConnect.OpenID">
+            <summary>身份标识。用户名、OpenID</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserConnect.LinkID">
+            <summary>用户编号。第三方用户编号</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserConnect.NickName">
+            <summary>昵称</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserConnect.Avatar">
+            <summary>头像</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserConnect.AccessToken">
+            <summary>访问令牌</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserConnect.RefreshToken">
+            <summary>刷新令牌</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserConnect.Expire">
+            <summary>过期时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserConnect.Enable">
+            <summary>启用</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserConnect.CreateUserID">
+            <summary>创建用户</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserConnect.CreateIP">
+            <summary>创建地址</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserConnect.CreateTime">
+            <summary>创建时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserConnect.UpdateUserID">
+            <summary>更新用户</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserConnect.UpdateIP">
+            <summary>更新地址</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserConnect.UpdateTime">
+            <summary>更新时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserConnect.Remark">
+            <summary>备注</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.UserConnect.Item(System.String)">
+            <summary>获取/设置 字段值</summary>
+            <param name="name">字段名</param>
+            <returns></returns>
+        </member>
+        <member name="T:NewLife.Cube.Entity.UserConnect._">
+            <summary>取得用户链接字段信息的快捷方式</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect._.ID">
+            <summary>编号</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect._.Provider">
+            <summary>提供商</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect._.UserID">
+            <summary>用户。本地用户</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect._.OpenID">
+            <summary>身份标识。用户名、OpenID</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect._.LinkID">
+            <summary>用户编号。第三方用户编号</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect._.NickName">
+            <summary>昵称</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect._.Avatar">
+            <summary>头像</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect._.AccessToken">
+            <summary>访问令牌</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect._.RefreshToken">
+            <summary>刷新令牌</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect._.Expire">
+            <summary>过期时间</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect._.Enable">
+            <summary>启用</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect._.CreateUserID">
+            <summary>创建用户</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect._.CreateIP">
+            <summary>创建地址</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect._.CreateTime">
+            <summary>创建时间</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect._.UpdateUserID">
+            <summary>更新用户</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect._.UpdateIP">
+            <summary>更新地址</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect._.UpdateTime">
+            <summary>更新时间</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect._.Remark">
+            <summary>备注</summary>
+        </member>
+        <member name="T:NewLife.Cube.Entity.UserConnect.__">
+            <summary>取得用户链接字段名称的快捷方式</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect.__.ID">
+            <summary>编号</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect.__.Provider">
+            <summary>提供商</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect.__.UserID">
+            <summary>用户。本地用户</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect.__.OpenID">
+            <summary>身份标识。用户名、OpenID</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect.__.LinkID">
+            <summary>用户编号。第三方用户编号</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect.__.NickName">
+            <summary>昵称</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect.__.Avatar">
+            <summary>头像</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect.__.AccessToken">
+            <summary>访问令牌</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect.__.RefreshToken">
+            <summary>刷新令牌</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect.__.Expire">
+            <summary>过期时间</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect.__.Enable">
+            <summary>启用</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect.__.CreateUserID">
+            <summary>创建用户</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect.__.CreateIP">
+            <summary>创建地址</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect.__.CreateTime">
+            <summary>创建时间</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect.__.UpdateUserID">
+            <summary>更新用户</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect.__.UpdateIP">
+            <summary>更新地址</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect.__.UpdateTime">
+            <summary>更新时间</summary>
+        </member>
+        <member name="F:NewLife.Cube.Entity.UserConnect.__.Remark">
+            <summary>备注</summary>
+        </member>
+        <member name="T:NewLife.Cube.Entity.IUserConnect">
+            <summary>用户链接。第三方绑定接口</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserConnect.ID">
+            <summary>编号</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserConnect.Provider">
+            <summary>提供商</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserConnect.UserID">
+            <summary>用户。本地用户</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserConnect.OpenID">
+            <summary>身份标识。用户名、OpenID</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserConnect.LinkID">
+            <summary>用户编号。第三方用户编号</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserConnect.NickName">
+            <summary>昵称</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserConnect.Avatar">
+            <summary>头像</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserConnect.AccessToken">
+            <summary>访问令牌</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserConnect.RefreshToken">
+            <summary>刷新令牌</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserConnect.Expire">
+            <summary>过期时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserConnect.Enable">
+            <summary>启用</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserConnect.CreateUserID">
+            <summary>创建用户</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserConnect.CreateIP">
+            <summary>创建地址</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserConnect.CreateTime">
+            <summary>创建时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserConnect.UpdateUserID">
+            <summary>更新用户</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserConnect.UpdateIP">
+            <summary>更新地址</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserConnect.UpdateTime">
+            <summary>更新时间</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserConnect.Remark">
+            <summary>备注</summary>
+        </member>
+        <member name="P:NewLife.Cube.Entity.IUserConnect.Item(System.String)">
+            <summary>获取/设置 字段值</summary>
+            <param name="name">字段名</param>
             <returns></returns>
         </member>
         <member name="T:NewLife.Cube.MvcApplication">
@@ -1008,19 +2272,6 @@
         <member name="M:NewLife.Cube.Precompiled.ViewCacheDependency.Invalidate">
             <summary>验证</summary>
         </member>
-        <member name="T:NewLife.Cube.Precompiled.Pages">
-            <summary>页面助手类</summary>
-        </member>
-        <member name="M:NewLife.Cube.Precompiled.Pages.IsExistByVirtualPath(System.String)">
-            <summary>路径是否存在</summary>
-            <param name="virtualPath"></param>
-            <returns></returns>
-        </member>
-        <member name="M:NewLife.Cube.Precompiled.Pages.GetByVirtualPath(System.String)">
-            <summary>根据路径获取页面模版</summary>
-            <param name="virtualPath"></param>
-            <returns></returns>
-        </member>
         <member name="T:NewLife.Cube.Precompiled.ViewFile">
             <summary>视图文件</summary>
         </member>
@@ -1030,26 +2281,6 @@
         </member>
         <member name="M:NewLife.Cube.Precompiled.ViewFile.Open">
             <summary>打开视图文件</summary>
-            <returns></returns>
-        </member>
-        <member name="T:NewLife.Cube.Precompiled.ViewPathProvider">
-            <summary>视图路径提供者</summary>
-        </member>
-        <member name="M:NewLife.Cube.Precompiled.ViewPathProvider.FileExists(System.String)">
-            <summary>文件是否存在</summary>
-            <param name="virtualPath"></param>
-            <returns></returns>
-        </member>
-        <member name="M:NewLife.Cube.Precompiled.ViewPathProvider.GetFile(System.String)">
-            <summary>获取视图文件</summary>
-            <param name="virtualPath"></param>
-            <returns></returns>
-        </member>
-        <member name="M:NewLife.Cube.Precompiled.ViewPathProvider.GetCacheDependency(System.String,System.Collections.IEnumerable,System.DateTime)">
-            <summary>获取缓存依赖</summary>
-            <param name="virtualPath"></param>
-            <param name="virtualPathDependencies"></param>
-            <param name="utcStart"></param>
             <returns></returns>
         </member>
         <member name="T:NewLife.Cube.Precompiled.CompositePrecompiledMvcEngine">
@@ -1266,13 +2497,22 @@
             <summary>布局页。</summary>
         </member>
         <member name="P:NewLife.Cube.Setting.DefaultRole">
-            <summary>默认角色。注册用户得到的角色</summary>
+            <summary>默认角色。注册用户得到的角色，0使用认证中心角色，-1强制使用</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.AllowLogin">
+            <summary>启用密码登录。允许输入用户名密码进行登录</summary>
         </member>
         <member name="P:NewLife.Cube.Setting.AllowRegister">
-            <summary>启用注册</summary>
+            <summary>启用注册。允许输入用户名密码进行注册</summary>
         </member>
-        <member name="P:NewLife.Cube.Setting.AllowForgot">
-            <summary>启用取回密码</summary>
+        <member name="P:NewLife.Cube.Setting.AutoRegister">
+            <summary>自动注册。第三方登录后，如果本地未登录，自动注册新用户</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.ForceBindUser">
+            <summary>强行绑定用户。根据OAuth登录返回用户名强项绑定本地同名用户，而不需要增加提供者前缀</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.SessionTimeout">
+            <summary>会话超时。单点登录后会话超时时间，该时间内可借助Cookie登录，默认0s</summary>
         </member>
         <member name="P:NewLife.Cube.Setting.LoginTip">
             <summary>登录提示。留空表示不显示登录提示信息</summary>
@@ -1283,11 +2523,157 @@
         <member name="P:NewLife.Cube.Setting.WebBehavior">
             <summary>用户行为。记录用户所有操作</summary>
         </member>
+        <member name="P:NewLife.Cube.Setting.WebStatistics">
+            <summary>访问统计。统计页面访问量</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.CatchAllException">
+            <summary>捕获所有异常。默认false只捕获魔方区域异常</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.FormGroupClass">
+            <summary>表单组样式。大中小屏幕分别3/2/1列</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.BootstrapSelect">
+            <summary>下拉选择框。使用Bootstrap，美观，但有呈现方面的性能损耗</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.ForceSSL">
+            <summary>强制SSL。强制使用https访问</summary>
+        </member>
+        <member name="P:NewLife.Cube.Setting.AvatarPath">
+            <summary>头像目录。设定后下载远程头像到本地</summary>
+        </member>
         <member name="M:NewLife.Cube.Setting.#ctor">
             <summary>实例化</summary>
         </member>
         <member name="M:NewLife.Cube.Setting.OnLoaded">
             <summary>加载时触发</summary>
+        </member>
+        <member name="T:NewLife.Cube.Web.OAuthHelper">
+            <summary>开放验证助手</summary>
+        </member>
+        <member name="M:NewLife.Cube.Web.OAuthHelper.GetLoginUrl(System.String,System.String)">
+            <summary>获取登录地址</summary>
+            <param name="name"></param>
+            <param name="returnUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Web.OAuthHelper.GetUrl(System.String,System.String)">
+            <summary>合并Url</summary>
+            <param name="baseUrl"></param>
+            <param name="returnUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NewLife.Cube.Web.OAuthServer2">
+            <summary>单点登录服务端</summary>
+        </member>
+        <member name="M:NewLife.Cube.Web.OAuthServer2.Authorize(System.String,System.String,System.String,System.String,System.String)">
+            <summary>验证用户身份</summary>
+            <remarks>
+            子系统需要验证访问者身份时，引导用户跳转到这里。
+            用户登录完成后，得到一个独一无二的code，并跳转回去子系统。
+            </remarks>
+            <param name="client_id">应用标识</param>
+            <param name="redirect_uri">回调地址</param>
+            <param name="response_type">响应类型。默认code</param>
+            <param name="scope">授权域</param>
+            <param name="state">用户状态数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Web.OAuthServer2.GetResult(System.Int32,NewLife.Model.IManageUser)">
+            <summary>根据验证结果获取跳转回子系统的Url</summary>
+            <param name="key"></param>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Web.OAuthServer2.GetToken(System.String,System.String,System.String)">
+            <summary>根据Code获取令牌</summary>
+            <param name="client_id"></param>
+            <param name="client_secret"></param>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NewLife.Cube.Web.SsoProvider">
+            <summary>单点登录提供者</summary>
+        </member>
+        <member name="P:NewLife.Cube.Web.SsoProvider.Provider">
+            <summary>用户管理提供者</summary>
+        </member>
+        <member name="P:NewLife.Cube.Web.SsoProvider.RedirectUrl">
+            <summary>重定向地址。~/Sso/LoginInfo</summary>
+        </member>
+        <member name="P:NewLife.Cube.Web.SsoProvider.SuccessUrl">
+            <summary>登录成功后跳转地址。~/Admin</summary>
+        </member>
+        <member name="P:NewLife.Cube.Web.SsoProvider.LoginUrl">
+            <summary>本地登录检查地址。~/Admin/User/Login</summary>
+        </member>
+        <member name="P:NewLife.Cube.Web.SsoProvider.Current">
+            <summary>已登录用户</summary>
+        </member>
+        <member name="M:NewLife.Cube.Web.SsoProvider.#ctor">
+            <summary>实例化</summary>
+        </member>
+        <member name="M:NewLife.Cube.Web.SsoProvider.GetClient(System.String)">
+            <summary>获取OAuth客户端</summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Web.SsoProvider.GetReturnUrl(System.Web.HttpRequestBase,System.Boolean)">
+            <summary>获取返回地址</summary>
+            <param name="request">请求对象</param>
+            <param name="referr">是否使用引用</param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Web.SsoProvider.GetRedirect(System.Web.HttpRequestBase,System.String)">
+            <summary>获取回调地址</summary>
+            <param name="request"></param>
+            <param name="returnUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Web.SsoProvider.OnLogin(NewLife.Web.OAuthClient,System.IServiceProvider)">
+            <summary>登录成功</summary>
+            <param name="client">OAuth客户端</param>
+            <param name="context">服务提供者。可用于获取HttpContext成员</param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Web.SsoProvider.Fill(NewLife.Web.OAuthClient,NewLife.Model.IManageUser)">
+            <summary>填充用户，登录成功并获取用户信息之后</summary>
+            <param name="client"></param>
+            <param name="user"></param>
+        </member>
+        <member name="M:NewLife.Cube.Web.SsoProvider.OnBind(NewLife.Cube.Entity.UserConnect,NewLife.Web.OAuthClient)">
+            <summary>绑定用户，用户未有效绑定或需要强制绑定时</summary>
+            <param name="uc"></param>
+            <param name="client"></param>
+        </member>
+        <member name="M:NewLife.Cube.Web.SsoProvider.Logout">
+            <summary>注销</summary>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Web.SsoProvider.GetAccessToken(NewLife.Web.OAuthServer,System.String,System.String,System.String)">
+            <summary>获取访问令牌</summary>
+            <param name="sso"></param>
+            <param name="client_id"></param>
+            <param name="client_secret"></param>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Web.SsoProvider.GetUser(NewLife.Web.OAuthServer,System.String)">
+            <summary>获取用户信息</summary>
+            <param name="sso"></param>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Web.SsoProvider.GetUserInfo(NewLife.Web.OAuthServer,System.String,NewLife.Model.IManageUser)">
+            <summary>获取用户信息</summary>
+            <param name="sso"></param>
+            <param name="token"></param>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewLife.Cube.Web.SsoProvider.FetchAvatar(NewLife.Model.IManageUser)">
+            <summary>抓取远程头像</summary>
+            <param name="user"></param>
+            <returns></returns>
         </member>
         <member name="T:NewLife.Bootstrap.BootstrapJs">
             <summary>Bootstrap脚本提供者</summary>

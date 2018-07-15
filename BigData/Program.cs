@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace BigData
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(String[] args)
         {
             XTrace.UseConsole();
 
@@ -49,12 +50,12 @@ namespace BigData
             // 模拟时序数据
             var time = DateTime.Now.Date;
 
-            var stat = new Statistics();
+            var stat = new PerfCounter();
             Task task = null;
-            var list = new EntityList<SalesOrder>();
-            for (int i = count; i <= total; i++)
+            var list = new List<SalesOrder>();
+            for (var i = count; i <= total; i++)
             {
-                stat.Increment();
+                stat.Increment(1, 0);
                 // 批量提交事务
                 if (i > 0 && i % batch == 0)
                 {
@@ -63,14 +64,14 @@ namespace BigData
                     task = Task.Run(() =>
                     {
                         var es = list;
-                        list = new EntityList<SalesOrder>();
+                        list = new List<SalesOrder>();
                         Interlocked.Decrement(ref _users);
                         es.Insert();
                         Interlocked.Increment(ref _users);
                     });
 
                     sw.Stop();
-                    Console.Title = "进度 {0:p2} 速度 {1} {2:n0}ms".F((double)i / total, stat, sw.ElapsedMilliseconds);
+                    Console.Title = "进度 {0:p2} 速度 {1} {2:n0}ms".F((Double)i / total, stat, sw.ElapsedMilliseconds);
                     //sw.Restart();
                 }
 
