@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Tables Version="9.5.6420.13918">
+<Tables xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:schemaLocation="https://newlifex.com https://newlifex.com/Model2022.xsd" Version="11.1.2022.0523" Document="https://newlifex.com/xcode/model" Output="Entity" NameSpace="Big.Data" ConnName="Data" BaseClass="" xmlns="https://newlifex.com/Model2022.xsd">
   <Table Name="SalesOrder" Description="销售订单" DbType="SqlServer">
     <Columns>
       <Column Name="ID" DataType="Int32" Identity="True" PrimaryKey="True" Description="编号" />

@@ -15,8 +15,9 @@ using NewLife.Data;
 using XCode;
 using XCode.Configuration;
 using XCode.Membership;
+using NewLife;
 
-namespace Big.Data.Entity
+namespace Big.Data
 {
     /// <summary>销售订单</summary>
     public partial class SalesOrder : Entity<SalesOrder>
@@ -50,7 +51,7 @@ namespace Big.Data.Entity
             if (Meta.Count >= 1000)
                 return Find(__.Number, number);
             else // 实体缓存
-                return Meta.Cache.Entities.Find(__.Number, number);
+                return Meta.Cache.Entities.Find(e => e.Number == number);
             // 单对象缓存
             //return Meta.SingleCache[number];
         }
