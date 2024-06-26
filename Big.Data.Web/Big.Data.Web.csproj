@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <AssemblyTitle>Web管理平台</AssemblyTitle>
+    <AssemblyTitle>大数据演示平台</AssemblyTitle>
     <Description>零代数据管理平台，基于魔方，快速开发各种管理后台</Description>
     <Company>新生命开发团队</Company>
     <Copyright>©2002-2022 NewLife</Copyright>
@@ -19,8 +19,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NewLife.Cube.Core" Version="5.2.2022.601" />
-    <PackageReference Include="NewLife.Stardust.Extensions" Version="2.1.2022.601" />
+    <PackageReference Include="NewLife.Cube.Core" Version="6.1.2024.403" />
+    <PackageReference Include="NewLife.Stardust.Extensions" Version="2.9.2024.402" />
   </ItemGroup>
 
   <ItemGroup>
