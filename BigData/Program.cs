@@ -34,7 +34,7 @@ namespace BigData
         static void Test1()
         {
             // 关闭日志
-            var set = XCode.Setting.Current;
+            var set = XCodeSetting.Current;
             set.ShowSQL = false;
 
             // 预热初始化

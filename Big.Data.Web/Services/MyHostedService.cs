@@ -6,7 +6,7 @@ using NewLife.Threading;
 using Stardust;
 using Stardust.Registry;
 
-namespace Zero.Web.Services;
+namespace Big.Data.Web.Services;
 
 /// <summary>
 /// 星尘注册中心用法，消费其它应用提供的服务
@@ -31,7 +31,7 @@ public class MyHostedService : IHostedService
         return Task.CompletedTask;
     }
 
-    async Task DoGetInfo(Object state)
+    async Task DoGetInfo(object state)
     {
         if (_client == null && _registry != null)
         {
@@ -47,7 +47,7 @@ public class MyHostedService : IHostedService
         if (_client != null && _client.Services.Count > 0)
         {
             // 尝试调用接口
-            var rs = await _client?.GetAsync<Object>("api/info", new { state = "NewLife1234" });
+            var rs = await _client?.GetAsync<object>("api/info", new { state = "NewLife1234" });
             XTrace.WriteLine("api接口信息：{0}", rs.ToJson(true));
         }
     }

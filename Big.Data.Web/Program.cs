@@ -1,7 +1,7 @@
-﻿using NewLife.Cube;
+﻿using Big.Data.Web.Services;
+using NewLife.Cube;
 using NewLife.Log;
 using XCode;
-using Zero.Web.Services;
 
 //!!! 标准Web项目模板，新生命团队强烈推荐
 
@@ -35,14 +35,10 @@ else
 
 // 使用魔方
 app.UseCube(app.Environment);
+app.UseCubeHome();
 
 app.UseAuthorization();
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=CubeHome}/{action=Index}/{id?}");
-});
+app.RegisterService("BigData", null, builder.Environment.EnvironmentName, "/cube/info");
 
 app.Run();
