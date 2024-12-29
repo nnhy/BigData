@@ -77,7 +77,7 @@ namespace BigData
                 var sd = new SalesOrder();
                 //sd.Number = Rand.Next().ToString().PadLeft(12, '0');
                 sd.Number = (i + 1).ToString().PadLeft(12, '0');
-                sd.NodeID = Rand.Next(1, 32);
+                sd.NodeId = Rand.Next(1, 32);
                 //sd.NodeID = 1;
 
                 time = time.AddMilliseconds(Rand.Next(0, 24 * 3600 * 1000));

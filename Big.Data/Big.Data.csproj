@@ -16,6 +16,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Config\**" />
+    <Compile Remove="Log\**" />
+    <EmbeddedResource Remove="Config\**" />
+    <EmbeddedResource Remove="Log\**" />
+    <None Remove="Config\**" />
+    <None Remove="Log\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="NewLife.Core" Version="11.1.2024.1206" />
     <PackageReference Include="NewLife.XCode" Version="11.16.2024.1202" />
   </ItemGroup>

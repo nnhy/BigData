@@ -20,7 +20,5 @@ bld/
 *.log
 *.nuspec
 *.nupkg
-/Big.Data.Web/Content
-/Big.Data.Web/Config
-/Big.Data.Web/Plugins
-/Avatars
+[Cc]onfig/
+[Ll]og/

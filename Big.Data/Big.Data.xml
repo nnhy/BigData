@@ -1,15 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Tables xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:schemaLocation="https://newlifex.com https://newlifex.com/Model2022.xsd" Version="11.1.2022.0523" Document="https://newlifex.com/xcode/model" Output="Entity" NameSpace="Big.Data" ConnName="Data" BaseClass="" xmlns="https://newlifex.com/Model2022.xsd">
-  <Table Name="SalesOrder" Description="销售订单" DbType="SqlServer">
-    <Columns>
-      <Column Name="ID" DataType="Int32" Identity="True" PrimaryKey="True" Description="编号" />
-      <Column Name="Number" DataType="String" Description="订单号" />
-      <Column Name="NodeID" DataType="Int32" Description="节点" />
-      <Column Name="Action" DataType="String" Description="动作" />
-      <Column Name="CreateTime" DataType="DateTime" Description="时间" />
-    </Columns>
-    <Indexes>
-      <Index Columns="Number" Unique="True" />
-    </Indexes>
-  </Table>
-</Tables>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityModel xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:schemaLocation="https://newlifex.com https://newlifex.com/Model202407.xsd" Version="11.1.2022.0523" Document="https://newlifex.com/xcode/model" xmlns="https://newlifex.com/Model202407.xsd">
+  <Option>
+    <!--类名模板。其中{name}替换为Table.Name，如{name}Model/I{name}Dto等-->
+    <ClassNameTemplate />
+    <!--显示名模板。其中{displayName}替换为Table.DisplayName-->
+    <DisplayNameTemplate />
+    <!--基类。可能包含基类和接口，其中{name}替换为Table.Name-->
+    <BaseClass />
+    <!--命名空间-->
+    <Namespace>Big.Data</Namespace>
+    <!--输出目录-->
+    <Output>Entity</Output>
+    <!--是否使用中文文件名。默认false-->
+    <ChineseFileName>False</ChineseFileName>
+    <!--用于生成Copy函数的参数类型。例如{name}或I{name}-->
+    <ModelNameForCopy />
+    <!--带有索引器。实现IModel接口-->
+    <HasIModel>False</HasIModel>
+    <!--可为null上下文。生成String?等-->
+    <Nullable>False</Nullable>
+    <!--数据库连接名-->
+    <ConnName>Data</ConnName>
+    <!--模型类模版。设置后生成模型类，用于接口数据传输，例如{name}Model-->
+    <ModelClass />
+    <!--模型类输出目录。默认当前目录的Models子目录-->
+    <ModelsOutput>.\Models\</ModelsOutput>
+    <!--模型接口模版。设置后生成模型接口，用于约束模型类和实体类，例如I{name}-->
+    <ModelInterface />
+    <!--模型接口输出目录。默认当前目录的Interfaces子目录-->
+    <InterfacesOutput>.\Interfaces\</InterfacesOutput>
+    <!--用户实体转为模型类的模型类。例如{name}或{name}DTO-->
+    <ModelNameForToModel />
+    <!--命名格式。Default/Upper/Lower/Underline-->
+    <NameFormat>Default</NameFormat>
+    <!--魔方区域显示名-->
+    <DisplayName />
+    <!--魔方控制器输出目录-->
+    <CubeOutput />
+  </Option>
+  <Tables>
+    <Table Name="SalesOrder" Description="销售订单" DbType="SqlServer">
+      <Columns>
+        <Column Name="Id" DataType="Int64" Identity="True" PrimaryKey="True" Description="编号" />
+        <Column Name="Number" DataType="String" Description="订单号" />
+        <Column Name="NodeId" DataType="Int32" Description="节点" />
+        <Column Name="Action" DataType="String" Description="动作" />
+        <Column Name="CreateTime" DataType="DateTime" Description="时间" />
+      </Columns>
+      <Indexes>
+        <Index Columns="Number" Unique="True" />
+      </Indexes>
+    </Table>
+  </Tables>
+</EntityModel>
