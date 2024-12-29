@@ -1,12 +1,11 @@
-﻿using System;
+﻿using Big.Data;
+using NewLife.Log;
+using NewLife.Security;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
-using Big.Data.Entity;
-using NewLife.Log;
-using NewLife.Net;
-using NewLife.Security;
 using XCode;
 
 namespace BigData
@@ -60,7 +59,7 @@ namespace BigData
                 if (i > 0 && i % batch == 0)
                 {
                     var sw = Stopwatch.StartNew();
-                    if (task != null && !task.IsOK() && _users < 0) task.Wait();
+                    if (task != null && !task.IsCompleted && _users < 0) task.Wait();
                     task = Task.Run(() =>
                     {
                         var es = list;
@@ -71,7 +70,7 @@ namespace BigData
                     });
 
                     sw.Stop();
-                    Console.Title = "进度 {0:p2} 速度 {1} {2:n0}ms".F((Double)i / total, stat, sw.ElapsedMilliseconds);
+                    Console.Title = $"进度 {(Double)i / total:p2} 速度 {stat} {sw.ElapsedMilliseconds:n0}ms";
                     //sw.Restart();
                 }
 
