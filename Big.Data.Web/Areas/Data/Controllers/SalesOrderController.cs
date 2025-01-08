@@ -40,8 +40,8 @@ public class SalesOrderController : EntityController<SalesOrder>
             var batchSize = XCodeSetting.Current.BatchSize;
             var count = 1_000_000;
 
-            // 管理员放大100倍
-            if (ManageProvider.User.Roles.Any(e => e.IsSystem)) count *= 100;
+            // 管理员放大10倍
+            if (ManageProvider.User.Roles.Any(e => e.IsSystem)) count *= 10;
 
             _buildService.Build(count, batchSize);
         });
@@ -61,8 +61,8 @@ public class SalesOrderController : EntityController<SalesOrder>
             var batchSize = XCodeSetting.Current.BatchSize;
             var count = 1_000_000;
 
-            // 管理员放大100倍
-            if (ManageProvider.User.Roles.Any(e => e.IsSystem)) count *= 100;
+            // 管理员放大10倍
+            if (ManageProvider.User.Roles.Any(e => e.IsSystem)) count *= 10;
 
             _buildService.ActorBuild(count, batchSize);
         });
