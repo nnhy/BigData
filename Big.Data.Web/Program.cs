@@ -1,10 +1,14 @@
 ﻿using NewLife.Cube;
 using NewLife.Log;
+using System.Diagnostics;
 
 //!!! 标准Web项目模板，新生命团队强烈推荐
 
 // 启用控制台日志，拦截所有异常
 XTrace.UseConsole();
+
+// 提高当前进程优先级，便于生成数据时更快完成
+Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.AboveNormal;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
