@@ -1,4 +1,5 @@
-﻿using NewLife.Cube;
+﻿using Big.Data.Web.Services;
+using NewLife.Cube;
 using NewLife.Log;
 using System.Diagnostics;
 
@@ -15,6 +16,8 @@ var services = builder.Services;
 
 // 配置星尘。借助StarAgent，或者读取配置文件 config/star.config 中的服务器地址
 var star = services.AddStardust(null);
+
+services.AddSingleton<BuildService>();
 
 services.AddControllersWithViews();
 services.AddCube();
