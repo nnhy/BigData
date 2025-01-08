@@ -39,6 +39,10 @@ public class SalesOrderController : EntityController<SalesOrder>
             // 根据批大小生成100万数据，并插入数据库
             var batchSize = XCodeSetting.Current.BatchSize;
             var count = 1_000_000;
+
+            // 管理员放大100倍
+            if (ManageProvider.User.Roles.Any(e => e.IsSystem)) count *= 100;
+
             _buildService.Build(count, batchSize);
         });
 
@@ -56,6 +60,10 @@ public class SalesOrderController : EntityController<SalesOrder>
             // 根据批大小生成100万数据，并插入数据库
             var batchSize = XCodeSetting.Current.BatchSize;
             var count = 1_000_000;
+
+            // 管理员放大100倍
+            if (ManageProvider.User.Roles.Any(e => e.IsSystem)) count *= 100;
+
             _buildService.ActorBuild(count, batchSize);
         });
 
