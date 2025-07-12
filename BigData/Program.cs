@@ -1,4 +1,5 @@
 ﻿using Big.Data;
+using NewLife;
 using NewLife.Log;
 using NewLife.Security;
 using System;
